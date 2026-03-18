@@ -19,8 +19,9 @@
     html { scroll-behavior: smooth; }
     html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-primary); line-height: 1.6; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-secondary); line-height: 1.6; }
     
+    /* 네비게이션바 */
     nav {
       position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
       background-color: #ffffff; 
@@ -30,10 +31,12 @@
       height: 70px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
     }
-    .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; }
-    .nav-logo span { color: #1a3a6b; }
+    /* 로고 크기를 키우고, 링크(a 태그)로 변경해서 꾸밈줄 제거 */
+    .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; text-decoration: none; display: flex; align-items: center; }
+    .nav-logo span { color: #1a3a6b; margin-left: 2px; }
+    
     .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+    .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
     .nav-links a:hover { color: #1a3a6b; }
     .nav-links a.active { color: #1a3a6b; font-weight: 600; border-bottom: 2px solid #1a3a6b; padding-bottom: 4px; }
 
@@ -45,15 +48,27 @@
     .sub-hero p { font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 300; }
 
     section { padding: 5rem 2rem; }
-    .section-inner { max-width: 1000px; margin: 0 auto; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
     
-    .greeting-wrap { display: flex; flex-direction: column; gap: 2rem; }
-    .greeting-title { font-family: 'Noto Serif KR', serif; font-size: 28px; font-weight: 600; color: #1a3a6b; line-height: 1.4; text-align: center; margin-bottom: 2rem; }
-    .greeting-text { font-size: 16px; color: var(--color-text-secondary); line-height: 1.9; word-break: keep-all; }
-    .greeting-text p { margin-bottom: 1.5rem; }
-    .greeting-signature { text-align: right; font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 1rem; }
+    /* 디자인이 꽉 차 보이도록 추가한 고급 캔버스 박스 */
+    .about-card {
+      background: #ffffff;
+      padding: 4rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      border-top: 4px solid #b8993a;
+      position: relative;
+      margin-top: -3rem; /* 위쪽 히어로 영역에 살짝 걸치게 해서 입체감 부여 */
+    }
 
-    /* 고급진 버튼 스타일 추가 */
+    .greeting-wrap { display: flex; flex-direction: column; gap: 1.5rem; }
+    .greeting-title { font-family: 'Noto Serif KR', serif; font-size: 28px; font-weight: 600; color: #1a3a6b; line-height: 1.5; text-align: center; margin-bottom: 2rem; }
+    .greeting-title::after { content: ''; display: block; width: 40px; height: 3px; background: #b8993a; margin: 1.5rem auto 0; }
+    
+    .greeting-text { font-size: 16px; color: var(--color-text-secondary); line-height: 2; word-break: keep-all; text-align: justify; }
+    .greeting-text p { margin-bottom: 1.5rem; }
+    .greeting-signature { text-align: right; font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; }
+
     .btn-luxury {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 16px 40px; font-size: 16px; font-weight: 600; letter-spacing: 0.05em;
@@ -62,9 +77,38 @@
       background: #1a3a6b; color: #ffffff; border: 1px solid #1a3a6b;
       box-shadow: 0 4px 15px rgba(26, 58, 107, 0.2);
     }
-    .btn-luxury:hover { 
-      background: #0d2244; border-color: #0d2244; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(13, 34, 68, 0.3);
+    .btn-luxury:hover { background: #0d2244; border-color: #0d2244; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(13, 34, 68, 0.3); }
+
+    /* --- 팝업창(모달) 스타일 --- */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000;
+      opacity: 0; transition: opacity 0.3s ease;
     }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal-content {
+      background: #0d2244; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative;
+      transform: translateY(-20px); transition: transform 0.3s ease;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3);
+    }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 15px; right: 20px; color: #fff; font-size: 28px; font-weight: 300;
+      cursor: pointer; background: none; border: none; padding: 0; line-height: 1;
+    }
+    .modal-title { color: #fff; font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; margin-bottom: 0.5rem; text-align: center; }
+    .modal-desc { color: rgba(255,255,255,0.7); font-size: 14px; text-align: center; margin-bottom: 2rem; }
+    
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-input, .form-textarea {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff;
+      padding: 14px 16px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; outline: none; width: 100%; transition: border-color 0.2s; margin-bottom: 1rem;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .form-input:focus, .form-textarea:focus { border-color: #b8993a; }
+    .form-textarea { resize: vertical; min-height: 100px; margin-bottom: 0; }
+    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
+    .btn-submit:hover { background: #a38630; }
 
     footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
     .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
@@ -74,19 +118,22 @@
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .nav-links { gap: 1.2rem; }
-      .greeting-title { font-size: 24px; }
+      .about-card { padding: 2.5rem 1.5rem; margin-top: -2rem; }
+      .greeting-title { font-size: 22px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-row .form-input { margin-bottom: 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="site">
     <nav>
-      <div class="nav-logo">법률사무소 <span>청하</span></div>
+      <a href="index.html" class="nav-logo">법률사무소 <span>청하</span></a>
       <div class="nav-links">
         <a href="about.html" class="active">소개</a>
         <a href="services.html">업무 분야</a>
         <a href="team.html">변호사</a>
-        <a href="index.html#contact">상담</a>
+        <a onclick="openModal()">상담</a>
       </div>
     </nav>
 
@@ -95,22 +142,23 @@
       <p>의뢰인의 가장 가까운 곳에서, 가장 강력한 방패가 되겠습니다.</p>
     </div>
 
-    <section style="background-color: var(--color-background-primary);">
-      <div class="section-inner greeting-wrap">
-        <h2 class="greeting-title">"인생의 중대한 기로,<br>당신의 권리를 지키는 흔들리지 않는 신념"</h2>
-        <div class="greeting-text">
-          <p>예기치 못한 법적 분쟁은 누구에게나 두렵고 막막한 경험입니다. 거대한 법의 테두리 안에서 홀로 서 있다고 느껴질 때, 가장 필요한 것은 내 입장을 온전히 이해하고 끝까지 싸워줄 수 있는 든든한 조력자입니다.</p>
-          <p>법률사무소 청하는 <strong>'법은 강자의 도구가 아닌, 모두를 위한 방패'</strong>라는 확고한 철학 아래 설립되었습니다. 수십 년간 검찰 실무에서 축적한 날카로운 통찰력과, 최신 법리에 밝은 젊은 감각이 만나 의뢰인을 위한 완벽한 맞춤형 법률 솔루션을 제공합니다.</p>
-          <p>저희는 단순히 사건을 처리하는 대리인을 넘어, 의뢰인의 상처를 어루만지고 일상의 평온을 되찾아 드리는 진정한 파트너가 되겠습니다. 수많은 승소 사례로 증명된 실력과 철저한 비밀 보장, 그리고 진정성 있는 소통으로 당신의 곁을 지키겠습니다.</p>
+    <section>
+      <div class="section-inner">
+        <div class="about-card greeting-wrap">
+          <h2 class="greeting-title">"인생의 중대한 기로,<br>당신의 권리를 지키는 흔들리지 않는 신념"</h2>
+          <div class="greeting-text">
+            <p>예기치 못한 법적 분쟁은 누구에게나 두렵고 막막한 경험입니다. 거대한 법의 테두리 안에서 홀로 서 있다고 느껴질 때, 가장 필요한 것은 내 입장을 온전히 이해하고 끝까지 싸워줄 수 있는 든든한 조력자입니다.</p>
+            <p>법률사무소 청하는 <strong>'법은 강자의 도구가 아닌, 모두를 위한 방패'</strong>라는 확고한 철학 아래 설립되었습니다. 수십 년간 검찰 실무에서 축적한 날카로운 통찰력과, 최신 법리에 밝은 젊은 감각이 만나 의뢰인을 위한 완벽한 맞춤형 법률 솔문을 제공합니다.</p>
+            <p>저희는 단순히 사건을 처리하는 대리인을 넘어, 의뢰인의 상처를 어루만지고 일상의 평온을 되찾아 드리는 진정한 파트너가 되겠습니다. 수많은 승소 사례로 증명된 실력과 철저한 비밀 보장, 그리고 진정성 있는 소통으로 당신의 곁을 지키겠습니다.</p>
+          </div>
+          <div class="greeting-signature">
+            법률사무소 청하 변호사 일동 올림
+          </div>
+          
+          <div style="text-align: center; margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--color-border-tertiary);">
+            <a href="team.html" class="btn-luxury">변호사 소개 보기</a>
+          </div>
         </div>
-        <div class="greeting-signature">
-          법률사무소 청하 변호사 일동 올림
-        </div>
-        
-        <div style="text-align: center; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-border-tertiary);">
-          <a href="team.html" class="btn-luxury">변호사 소개 보기</a>
-        </div>
-
       </div>
     </section>
 
@@ -119,5 +167,76 @@
       <div class="footer-copy">© 2026 Law Office Chungha. All rights reserved.</div>
     </footer>
   </div>
+
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-title">법률 상담 신청</div>
+      <div class="modal-desc">빠르게 확인 후 연락드리겠습니다.</div>
+      
+      <form id="popupContactForm" action="https://formspree.io/f/mbdzpjed" method="POST">
+        <div class="form-row">
+          <input class="form-input" type="text" name="성함" placeholder="성함" required />
+          <input class="form-input" type="tel" name="연락처" placeholder="연락처" required />
+        </div>
+        <input class="form-input" type="email" name="이메일" placeholder="이메일" required />
+        <input class="form-input" type="text" name="상담분야" placeholder="상담 분야 (예: 형사변호, 부동산 분쟁)" />
+        <textarea class="form-textarea" name="상담내용" placeholder="상담 내용을 간략히 적어주세요." required></textarea>
+        <button type="submit" class="btn-submit">상담 신청하기</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('contactModal');
+
+    function openModal() {
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+
+    // 모달창 바깥 검은 배경 누르면 닫히게 하기
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // 폼 제출 시 페이지 안 넘어가게 제어
+    document.getElementById("popupContactForm").addEventListener("submit", async function(event) {
+      event.preventDefault(); 
+      const form = event.target;
+      const data = new FormData(form);
+      const submitButton = form.querySelector('.btn-submit');
+      const originalButtonText = submitButton.innerText;
+
+      submitButton.innerText = "전송 중...";
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          alert("상담 신청이 성공적으로 완료되었습니다. 빠르게 연락드리겠습니다.");
+          form.reset(); 
+          closeModal(); // 완료되면 창 닫기
+        } else {
+          alert("제출에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+        }
+      } catch (error) {
+        alert("네트워크 오류가 발생했습니다. 다시 시도해 주세요.");
+      } finally {
+        submitButton.innerText = originalButtonText;
+        submitButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
