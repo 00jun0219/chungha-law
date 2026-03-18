@@ -34,12 +34,10 @@
     .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; text-decoration: none; display: flex; align-items: center; z-index: 101; }
     .nav-logo span { color: #1a3a6b; margin-left: 8px; }
     
-    /* 데스크탑 메뉴 스타일 */
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
     .nav-links a:hover { color: #1a3a6b; }
     
-    /* 모바일용 햄버거 메뉴 버튼 (기본은 숨김) */
     .mobile-menu-btn { display: none; font-size: 24px; color: var(--color-text-primary); cursor: pointer; z-index: 101; user-select: none; }
 
     .hero {
@@ -100,25 +98,10 @@
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
     .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     
-    /* 변호사 사진 스타일 */
     .team-portrait { height: 280px; position: relative; overflow: hidden; background: #eef2f6; } 
-    .team-portrait img { 
-      width: 100%; height: 100%; 
-      object-fit: contain; 
-      object-position: bottom; 
-      display: block; 
-      transition: transform 0.4s ease; 
-    }
-    
-    /* 우준 변호사님 전용 꽉 차는 스타일 (cover) 추가 */
-    .team-portrait.style-cover img {
-      object-fit: cover;
-      object-position: center;
-    }
-    
-    .team-card:hover .team-portrait img {
-      transform: scale(1.05);
-    }
+    .team-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
+    .team-portrait.style-cover img { object-fit: cover; object-position: center; }
+    .team-card:hover .team-portrait img { transform: scale(1.05); }
     .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #b8993a; z-index: 2; }
     
     .team-info { padding: 2rem; }
@@ -165,9 +148,35 @@
     .footer-logo span { color: #4a90e2; margin-left: 2px; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 
-    /* ★ 모바일 최적화 (반응형 웹) 스타일 시작 ★ */
+    /* ★ 플로팅 버튼 스타일 ★ */
+    .floating-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #b8993a;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .floating-btn:hover {
+      background-color: #a38630;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* 모바일 최적화 */
     @media (max-width: 768px) {
-      /* 여백 및 글자 크기 조정 */
       nav { padding: 0 1rem; }
       section { padding: 4rem 1.5rem; }
       .hero { padding: 5rem 1.5rem 4rem; }
@@ -179,31 +188,19 @@
       .form-row { grid-template-columns: 1fr; }
       .contact-form { padding: 1.5rem; }
       
-      /* 모바일 네비게이션 (햄버거 메뉴) 작동 설정 */
       .mobile-menu-btn { display: block; }
-      .nav-links {
-        display: none; /* 평소엔 숨김 */
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 70px; /* 네비게이션바 바로 아래에 붙도록 설정 */
-        left: 0;
-        background-color: #ffffff;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        padding: 1rem 0;
-        gap: 0;
-      }
-      .nav-links.active {
-        display: flex; /* 버튼을 누르면 나타남! */
-      }
-      .nav-links a {
-        padding: 15px 2rem;
-        border-bottom: 1px solid var(--color-border-tertiary);
-        width: 100%;
-        text-align: left;
-        font-size: 16px;
-      }
+      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
+      .nav-links.active { display: flex; }
+      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; font-size: 16px; }
       .nav-links a:last-child { border-bottom: none; }
+      
+      /* 모바일에서는 플로팅 버튼 크기와 위치를 조금 줄임 */
+      .floating-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 14.5px;
+      }
     }
   </style>
 </head>
@@ -212,7 +209,6 @@
     <nav>
       <a href="index.html" class="nav-logo">법률사무소 <span>청하</span></a>
       <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
-      
       <div class="nav-links" id="navMenu">
         <a href="about.html">소개</a>
         <a href="services.html">업무 분야</a>
@@ -357,9 +353,9 @@
                 <li>前 광주·서울(동부·수원·남부)·제주·부산·전주(정읍지청장)지방검찰청 검사</li>
                 <li>前 수원지방검찰청 형사3부 부장검사</li>
                 <li>前 대구지방검찰청 형사1부 부장검사</li>
-                <li>Pre 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
-                <li>Pre 법무법인 대륙아주 변호사</li>
-                <li>Pre 법무법인 새로 변호사</li>
+                <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
+                <li>前 법무법인 대륙아주 변호사</li>
+                <li>前 법무법인 새로 변호사</li>
                 <li>現 법률사무소 청하 대표변호사</li>
               </ul>
             </div>
@@ -378,6 +374,7 @@
                 <span class="team-tag">형사·소년</span>
                 <span class="team-tag">엔터·지적재산권</span>
                 <span class="team-tag">산재·노동</span>
+                <span class="team-tag">의료</span>
               </div>
               <ul class="career-list">
                 <li>동국대학교 법학과 우등 졸업</li>
@@ -452,6 +449,10 @@
     </footer>
   </div>
 
+  <button class="floating-btn" onclick="openModal()">
+    💬 빠른 상담
+  </button>
+
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
@@ -471,13 +472,10 @@
   </div>
 
   <script>
-    /* 햄버거 메뉴를 열고 닫는 스크립트 */
     function toggleMenu() {
       const menu = document.getElementById("navMenu");
       menu.classList.toggle("active");
     }
-
-    /* 팝업 모달 스크립트 */
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
