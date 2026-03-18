@@ -95,9 +95,18 @@
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
     .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
     
-    /* 여기서 사진이 예쁘게 들어가도록 스타일을 수정했어! */
-    .team-portrait { height: 280px; position: relative; overflow: hidden; background: #f0f4f8; }
-    .team-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    /* 여기서 사진 상자를 수정하고 줌인 애니메이션을 추가했어! */
+    .team-portrait { height: 280px; position: relative; overflow: hidden; background: #eef2f6; } 
+    .team-portrait img { 
+      width: 100%; height: 100%; 
+      object-fit: contain; /* 얼굴이 꽉 차지 않게 잘림 방지 */
+      object-position: bottom; /* 사진을 아래쪽으로 예쁘게 정렬 */
+      display: block; 
+      transition: transform 0.4s ease; /* 부드러운 애니메이션 준비 */
+    }
+    .team-card:hover .team-portrait img {
+      transform: scale(1.05); /* 마우스 올렸을 때 살짝 커짐 */
+    }
     .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #b8993a; z-index: 2; }
     
     .team-info { padding: 2rem; }
