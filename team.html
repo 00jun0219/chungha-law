@@ -48,10 +48,17 @@
     .lawyer-profile { display: flex; gap: 4rem; align-items: flex-start; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border-tertiary); }
     .lawyer-profile:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
     
-    /* 변호사 상세 페이지 사진 상자도 비율 및 줌인 효과 똑같이 적용! */
+    /* 기본 사진 스타일 (다 나오게 contain) */
     .lawyer-img { width: 350px; height: 420px; flex-shrink: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #eef2f6; position: relative; }
     .lawyer-img img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
-    .lawyer-profile:hover .lawyer-img img { transform: scale(1.03); }
+    
+    /* 우준 변호사님 전용 꽉 차는 스타일 (cover) */
+    .lawyer-img.style-cover img {
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .lawyer-profile:hover .lawyer-img img { transform: scale(1.03); } /* 마우스 올리면 커지는 효과 */
     
     .lawyer-info { flex-grow: 1; }
     .lawyer-role { font-size: 15px; font-weight: 600; color: #b8993a; letter-spacing: 0.15em; margin-bottom: 0.8rem; text-transform: uppercase; }
@@ -87,7 +94,7 @@
 
     footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
     .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
-    .footer-logo span { color: #4a90e2; }
+    .footer-logo span { color: #4a90e2; margin-left: 2px; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 
     @media (max-width: 768px) {
@@ -151,7 +158,7 @@
         </div>
 
         <div class="lawyer-profile">
-          <div class="lawyer-img">
+          <div class="lawyer-img style-cover">
             <img src="최우준변호사.webp" alt="최우준 변호사">
           </div>
           <div class="lawyer-info">
