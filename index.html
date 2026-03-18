@@ -30,7 +30,6 @@
       height: 70px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
     }
-    /* 로고 크기 24px, 청하 글자 간격 8px로 넓힘! */
     .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; text-decoration: none; display: flex; align-items: center; }
     .nav-logo span { color: #1a3a6b; margin-left: 8px; }
     
@@ -95,9 +94,12 @@
     .team { background: var(--color-background-primary); }
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
     .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
-    .team-portrait { height: 200px; background: linear-gradient(135deg, #0d2244, #2a548f); display: flex; align-items: center; justify-content: center; position: relative; }
-    .team-initials { font-family: 'Noto Serif KR', serif; font-size: 48px; font-weight: 600; color: rgba(255,255,255,0.9); }
-    .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #b8993a; }
+    
+    /* 여기서 사진이 예쁘게 들어가도록 스타일을 수정했어! */
+    .team-portrait { height: 280px; position: relative; overflow: hidden; background: #f0f4f8; }
+    .team-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #b8993a; z-index: 2; }
+    
     .team-info { padding: 2rem; }
     .team-role { font-size: 13px; font-weight: 600; color: #1a3a6b; letter-spacing: 0.1em; margin-bottom: 8px; }
     .team-name { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; margin-bottom: 1.2rem; }
@@ -270,9 +272,10 @@
         <h2 class="section-title">변호사 소개</h2>
         <p class="section-desc">풍부한 경험과 전문성으로 의뢰인의 권익을 지킵니다.</p>
         <div class="team-grid">
+          
           <div class="team-card">
             <div class="team-portrait">
-              <div class="team-initials">이선우</div>
+              <img src="대표변호사.png" alt="이선우 대표 변호사">
               <div class="team-bar"></div>
             </div>
             <div class="team-info">
@@ -297,9 +300,10 @@
               </ul>
             </div>
           </div>
+          
           <div class="team-card">
-            <div class="team-portrait" style="background: linear-gradient(135deg, #1a3a6b, #2a548f);">
-              <div class="team-initials">최우준</div>
+            <div class="team-portrait">
+              <img src="최우준변호사.webp" alt="최우준 변호사">
               <div class="team-bar"></div>
             </div>
             <div class="team-info">
@@ -328,6 +332,7 @@
               </ul>
             </div>
           </div>
+          
         </div>
       </div>
     </section>
