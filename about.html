@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>법률사무소 청하 - 소개</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
+
+    :root {
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f8f9fa;
+      --color-text-primary: #212529;
+      --color-text-secondary: #495057;
+      --color-border-tertiary: #dee2e6;
+      --border-radius-lg: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; width: 100%; overflow-x: hidden; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-primary); line-height: 1.6; }
+    
+    /* 네비게이션바 (대문 페이지와 동일) */
+    nav {
+      position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
+      background-color: #ffffff; 
+      border-bottom: 1px solid var(--color-border-tertiary);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+    }
+    .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; }
+    .nav-logo span { color: #1a3a6b; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+    .nav-links a:hover { color: #1a3a6b; }
+    .nav-links a.active { color: #1a3a6b; font-weight: 600; border-bottom: 2px solid #1a3a6b; padding-bottom: 4px; }
+
+    /* 서브페이지용 히어로 섹션 (높이를 조금 줄이고 깔끔하게) */
+    .sub-hero {
+      background: linear-gradient(160deg, #0d2244 0%, #1a3a6b 60%, #2a548f 100%);
+      padding: 5rem 2rem; text-align: center; color: #fff;
+    }
+    .sub-hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; margin-bottom: 1rem; }
+    .sub-hero p { font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 300; }
+
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1000px; margin: 0 auto; }
+    
+    /* 인사말 섹션 */
+    .greeting-wrap { display: flex; flex-direction: column; gap: 2rem; }
+    .greeting-title { font-family: 'Noto Serif KR', serif; font-size: 28px; font-weight: 600; color: #1a3a6b; line-height: 1.4; }
+    .greeting-text { font-size: 16px; color: var(--color-text-secondary); line-height: 1.9; word-break: keep-all; }
+    .greeting-text p { margin-bottom: 1.5rem; }
+    .greeting-signature { text-align: right; font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 600; color: var(--color-text-primary); margin-top: 2rem; }
+
+    /* 변호사 상세 소개 섹션 */
+    .lawyer-profile { display: flex; gap: 4rem; align-items: flex-start; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border-tertiary); }
+    .lawyer-profile:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .lawyer-img { width: 320px; flex-shrink: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #f0f4f8; }
+    .lawyer-img img { width: 100%; height: auto; display: block; object-fit: cover; }
+    
+    .lawyer-info { flex-grow: 1; }
+    .lawyer-role { font-size: 14px; font-weight: 600; color: #b8993a; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .lawyer-name { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; }
+    .lawyer-desc { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 2rem; padding-left: 1rem; border-left: 3px solid #1a3a6b; }
+    
+    .career-title { font-size: 16px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; }
+    .career-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .career-list li { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 14px; position: relative; }
+    .career-list li::before { content: '■'; position: absolute; left: 0; top: 2px; color: #b8993a; font-size: 8px; }
+
+    footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+    .footer-logo span { color: #4a90e2; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    @media (max-width: 768px) {
+      .lawyer-profile { flex-direction: column; gap: 2rem; }
+      .lawyer-img { width: 100%; max-width: 350px; margin: 0 auto; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <nav>
+      <div class="nav-logo">법률사무소 <span>청하</span></div>
+      <div class="nav-links">
+        <a href="about.html" class="active">소개</a>
+        <a href="services.html">서비스</a>
+        <a href="team.html">변호사</a>
+        <a href="index.html#contact">상담</a>
+      </div>
+    </nav>
+
+    <div class="sub-hero">
+      <h1>법률사무소 청하 소개</h1>
+      <p>의뢰인의 가장 가까운 곳에서, 가장 강력한 방패가 되겠습니다.</p>
+    </div>
+
+    <section style="background-color: var(--color-background-primary);">
+      <div class="section-inner greeting-wrap">
+        <h2 class="greeting-title">"인생의 중대한 기로,<br>당신의 권리를 지키는 흔들리지 않는 신념"</h2>
+        <div class="greeting-text">
+          <p>예기치 못한 법적 분쟁은 누구에게나 두렵고 막막한 경험입니다. 거대한 법의 테두리 안에서 홀로 서 있다고 느껴질 때, 가장 필요한 것은 내 입장을 온전히 이해하고 끝까지 싸워줄 수 있는 든든한 조력자입니다.</p>
+          <p>법률사무소 청하는 <strong>'법은 강자의 도구가 아닌, 모두를 위한 방패'</strong>라는 확고한 철학 아래 설립되었습니다. 수십 년간 검찰 실무에서 축적한 날카로운 통찰력과, 최신 법리에 밝은 젊은 감각이 만나 의뢰인을 위한 완벽한 맞춤형 법률 솔루션을 제공합니다.</p>
+          <p>저희는 단순히 사건을 처리하는 대리인을 넘어, 의뢰인의 상처를 어루만지고 일상의 평온을 되찾아 드리는 진정한 파트너가 되겠습니다. 수많은 승소 사례로 증명된 실력과 철저한 비밀 보장, 그리고 진정성 있는 소통으로 당신의 곁을 지키겠습니다.</p>
+        </div>
+        <div class="greeting-signature">
+          법률사무소 청하 변호사 일동 올림
+        </div>
+      </div>
+    </section>
+
+    <section style="background-color: var(--color-background-secondary);">
+      <div class="section-inner">
+        
+        <div class="lawyer-profile">
+          <div class="lawyer-img">
+            <img src="image_a269c1.jpg" alt="이선우 대표 변호사">
+          </div>
+          <div class="lawyer-info">
+            <div class="lawyer-role">대표 변호사</div>
+            <h3 class="lawyer-name">이선우</h3>
+            <div class="lawyer-desc">
+              "오랜 공직 생활을 통해 얻은 수사 프로세스에 대한 깊은 이해와 꿰뚫어 보는 통찰력으로, 복잡하게 얽힌 사건의 핵심을 정확히 타격하여 최선의 결과를 이끌어냅니다."
+            </div>
+            <div class="career-title">학력 및 경력</div>
+            <ul class="career-list">
+              <li>서울대학교 법과대학 졸업</li>
+              <li>제14회 사법고시 합격</li>
+              <li>前 광주·서울(동부·수원·남부)·제주·부산·전주(정읍지청장)지방검찰청 검사</li>
+              <li>前 수원지방검찰청 형사3부 부장검사</li>
+              <li>前 대구지방검찰청 형사1부 부장검사</li>
+              <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
+              <li>前 법무법인 대륙아주 변호사</li>
+              <li>前 법무법인 새로 변호사</li>
+              <li>現 법률사무소 청하 대표변호사</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lawyer-profile">
+          <div class="lawyer-img">
+            <img src="image_a26963.jpg" alt="최우준 변호사">
+          </div>
+          <div class="lawyer-info">
+            <div class="lawyer-role">변호사</div>
+            <h3 class="lawyer-name">최우준</h3>
+            <div class="lawyer-desc">
+              "사건 이면에 숨겨진 의뢰인의 마음까지 헤아립니다. 민·형사를 아우르는 전문성은 물론, 엔터테인먼트와 지적재산권 등 현대의 복잡한 법률 분쟁에서 치밀하고 세련된 솔루션을 제시합니다."
+            </div>
+            <div class="career-title">학력 및 경력</div>
+            <ul class="career-list">
+              <li>동국대학교 법학과 우등 졸업</li>
+              <li>충남대학교 법학전문대학원 졸업</li>
+              <li>제13회 변호사시험 합격</li>
+              <li>법제처 실무수습</li>
+              <li>제8회 특허소송변론대회 입선</li>
+              <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상 수상</li>
+              <li>아동심리상담사 1급</li>
+              <li>現 거원초등학교 변호사 명예교사</li>
+              <li>現 SMGS 브랜드 법률고문</li>
+              <li>現 KGM 노동조합 자문 변호사</li>
+              <li>재즈기자 · SMGS 등 다수 유튜브 채널 출연</li>
+              <li>유튜브 〈별걸다하는 최변〉 운영</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-logo">법률사무소 <span>청하</span></div>
+      <div class="footer-copy">© 2026 Law Office Chungha. All rights reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
