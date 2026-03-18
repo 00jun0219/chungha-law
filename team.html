@@ -47,8 +47,11 @@
     
     .lawyer-profile { display: flex; gap: 4rem; align-items: flex-start; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border-tertiary); }
     .lawyer-profile:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .lawyer-img { width: 350px; flex-shrink: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #f0f4f8; }
-    .lawyer-img img { width: 100%; height: auto; display: block; object-fit: cover; }
+    
+    /* 변호사 상세 페이지 사진 상자도 비율 및 줌인 효과 똑같이 적용! */
+    .lawyer-img { width: 350px; height: 420px; flex-shrink: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #eef2f6; position: relative; }
+    .lawyer-img img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
+    .lawyer-profile:hover .lawyer-img img { transform: scale(1.03); }
     
     .lawyer-info { flex-grow: 1; }
     .lawyer-role { font-size: 15px; font-weight: 600; color: #b8993a; letter-spacing: 0.15em; margin-bottom: 0.8rem; text-transform: uppercase; }
@@ -89,7 +92,7 @@
 
     @media (max-width: 768px) {
       .lawyer-profile { flex-direction: column; gap: 2.5rem; }
-      .lawyer-img { width: 100%; max-width: 400px; margin: 0 auto; }
+      .lawyer-img { width: 100%; height: 350px; max-width: 400px; margin: 0 auto; }
       nav { padding: 0 1rem; }
       .nav-links { gap: 1.2rem; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -192,7 +195,7 @@
 
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <button class="modal-close" onclick="closeModal()">×</button>
       <div class="modal-title">법률 상담 신청</div>
       <div class="modal-desc">빠르게 확인 후 연락드리겠습니다.</div>
       <form id="popupContactForm" action="https://formspree.io/f/mbdzpjed" method="POST">
