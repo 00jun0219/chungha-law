@@ -110,6 +110,7 @@
       transition: transform 0.4s ease; 
     }
     
+    /* 우준 변호사님 전용 꽉 차는 스타일 (cover) 추가 */
     .team-portrait.style-cover img {
       object-fit: cover;
       object-position: center;
@@ -164,9 +165,7 @@
     .footer-logo span { color: #4a90e2; margin-left: 2px; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 
-    /* ==========================================================
-       ★ 모바일 최적화 (반응형 웹) 스타일 시작 ★ 
-       ========================================================== */
+    /* ★ 모바일 최적화 (반응형 웹) 스타일 시작 ★ */
     @media (max-width: 768px) {
       /* 여백 및 글자 크기 조정 */
       nav { padding: 0 1rem; }
@@ -358,9 +357,9 @@
                 <li>前 광주·서울(동부·수원·남부)·제주·부산·전주(정읍지청장)지방검찰청 검사</li>
                 <li>前 수원지방검찰청 형사3부 부장검사</li>
                 <li>前 대구지방검찰청 형사1부 부장검사</li>
-                <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
-                <li>前 법무법인 대륙아주 변호사</li>
-                <li>前 법무법인 새로 변호사</li>
+                <li>Pre 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
+                <li>Pre 법무법인 대륙아주 변호사</li>
+                <li>Pre 법무법인 새로 변호사</li>
                 <li>現 법률사무소 청하 대표변호사</li>
               </ul>
             </div>
@@ -376,10 +375,10 @@
               <div class="team-name">최우준</div>
               <div class="team-tags">
                 <span class="team-tag">민사</span>
-                <span class="team-tag">형사</span>
-                <span class="team-tag">엔터테인먼트</span>
-                <span class="team-tag">지적재산권</span>
-                <span class="team-tag">소년보호</span>
+                <span class="team-tag">형사·소년보호</span>
+                <span class="team-tag">엔터·지적재산권</span>
+                <span class="team-tag">산재·노동</span>
+                <span class="team-tag">의료</span>
               </div>
               <ul class="career-list">
                 <li>동국대학교 법학과 우등 졸업</li>
@@ -405,7 +404,7 @@
     <section class="contact" id="contact">
       <div class="section-inner">
         <div class="section-label" style="color: rgba(184,153,58,0.9);">Contact</div>
-        <h2 class="section-title">법률 상담 신청</h2>
+        <h2 class="section-title">상담 신청</h2>
         <p class="section-desc">어떤 작은 고민이라도 편하게 문의해 주세요. 빠르게 답변드리겠습니다.</p>
         <div class="contact-grid">
           <div class="contact-items">
@@ -457,7 +456,7 @@
   <div class="modal-overlay" id="contactModal">
     <div class="modal-content">
       <button class="modal-close" onclick="closeModal()">×</button>
-      <div class="modal-title">법률 상담 신청</div>
+      <div class="modal-title">상담 신청</div>
       <div class="modal-desc">빠르게 확인 후 연락드리겠습니다.</div>
       <form id="popupContactForm" action="https://formspree.io/f/mbdzpjed" method="POST">
         <div class="form-row">
@@ -473,7 +472,7 @@
   </div>
 
   <script>
-    /* 햄버거 메뉴를 열고 닫는 스크립트 추가 */
+    /* 햄버거 메뉴를 열고 닫는 스크립트 */
     function toggleMenu() {
       const menu = document.getElementById("navMenu");
       menu.classList.toggle("active");
