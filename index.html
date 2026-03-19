@@ -99,7 +99,7 @@
     .value-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
     .value-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
 
-    /* ★ 주요 업무 분야 (6개 복구 완료) ★ */
+    /* ★ 주요 업무 분야 (6개 완벽 적용) ★ */
     .services { background: var(--color-background-secondary); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
     .service-card { background: var(--color-background-primary); padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid var(--color-border-tertiary); transition: transform 0.2s; }
@@ -418,7 +418,8 @@
             </div>
           </div>
           
-          <div id="map" class="map-box"></div>
+          <div id="map" class="map-box">
+             </div>
         </div>
       </div>
     </section>
@@ -456,7 +457,7 @@
     </div>
   </div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
   
   <script>
     /* 1. 버벅임 없는 직관적인 숫자 카운트 애니메이션 */
@@ -477,7 +478,7 @@
       }, stepTime);
     }
 
-    /* 2. 스크롤 포커스(Fade-in) 및 카운터 트리거, 지도 렌더링 설정 */
+    /* 2. 스크롤 포커스, 숫자 카운터, 그리고 완벽한 지도 렌더링을 하나로 통합 */
     document.addEventListener("DOMContentLoaded", () => {
       
       // -- 숫자 카운터 & 스크롤 애니메이션 --
@@ -486,6 +487,7 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            
             // 통계 박스가 화면에 보이면 숫자 카운터 시작
             if (entry.target.id === 'stats-container' && !counterAnimated) {
               startCounterAnimation();
@@ -498,28 +500,27 @@
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(el => observer.observe(el));
 
-      // -- 3. 카카오 지도 렌더링 (중복 제거 및 공식 가이드 적용) --
-      if (typeof kakao !== 'undefined' && kakao.maps) {
-        var mapContainer = document.getElementById('map'); 
-        var lat = 37.4914554826548; 
-        var lng = 127.013569321577; 
-        
-        var mapOption = { 
-            center: new kakao.maps.LatLng(lat, lng), 
-            level: 3 // 지도 확대 레벨
-        };
-        
-        // 지도를 생성합니다
-        var map = new kakao.maps.Map(mapContainer, mapOption); 
-        
-        // 마커를 생성하고 지도에 표시합니다
-        var markerPosition  = new kakao.maps.LatLng(lat, lng); 
-        var marker = new kakao.maps.Marker({ position: markerPosition });
-        marker.setMap(map);
+      // -- 3. 카카오 지도 렌더링 (가장 안정적인 방식) --
+      var mapContainer = document.getElementById('map'); 
+      if(mapContainer) {
+          mapContainer.innerHTML = ''; // 기본 텍스트 지우기
+          
+          var lat = 37.4914554826548; 
+          var lng = 127.013569321577; 
+          
+          var mapOption = { 
+              center: new kakao.maps.LatLng(lat, lng), 
+              level: 3 
+          };
+          
+          var map = new kakao.maps.Map(mapContainer, mapOption); 
+          var markerPosition  = new kakao.maps.LatLng(lat, lng); 
+          var marker = new kakao.maps.Marker({ position: markerPosition });
+          marker.setMap(map);
       }
     });
 
-    /* 4. 기타 UI 기능 (메뉴, 팝업 폼 등) */
+    /* 4. 기타 UI 기능 */
     function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
