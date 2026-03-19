@@ -459,6 +459,28 @@
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
   
   <script>
+    // 1. 지도 생성 스크립트 (카카오 공식 가이드 기준)
+    var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+    var mapOption = { 
+        center: new kakao.maps.LatLng(37.4914554826548, 127.013569321577), // 청하 위도, 경도
+        level: 3 // 지도의 확대 레벨
+    };
+    
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(37.4914554826548, 127.013569321577); 
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+  </script>
+  <script>
     /* 1. 버벅임 없는 직관적인 숫자 카운트 애니메이션 */
     function startCounterAnimation() {
       const counterEl = document.getElementById("year-counter");
