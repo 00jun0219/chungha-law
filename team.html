@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>법률사무소 청하 - 변호사 소개</title>
+  <title>변호사 소개 - 법률사무소 청하</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
 
     :root {
-      --color-background-primary: #ffffff;
-      --color-background-secondary: #f8f9fa;
-      --color-text-primary: #212529;
-      --color-text-secondary: #495057;
-      --color-border-tertiary: #dee2e6;
+      --color-background-primary: #efece5; 
+      --color-background-secondary: #e6e2d8;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #4a4a4a;
+      --color-border-tertiary: #d2ceca;
       --border-radius-lg: 8px;
     }
 
@@ -24,145 +24,139 @@
     /* 네비게이션바 */
     nav {
       position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
-      background-color: #ffffff; 
+      background-color: rgba(239, 236, 229, 0.95); 
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border-tertiary);
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
       height: 70px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
     }
-    .nav-logo { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: var(--color-text-primary); letter-spacing: 0.02em; text-decoration: none; display: flex; align-items: center; z-index: 101; }
-    .nav-logo span { color: #1a3a6b; margin-left: 8px; }
+    .nav-logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
+    .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #1a1a1a; }
     
-    /* 데스크탑 메뉴 스타일 */
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
-    .nav-links a:hover { color: #1a3a6b; }
-    .nav-links a.active { color: #1a3a6b; font-weight: 600; border-bottom: 2px solid #1a3a6b; padding-bottom: 4px; }
-    
-    /* 모바일용 햄버거 메뉴 버튼 */
+    .nav-links a:hover { color: #b8993a; }
     .mobile-menu-btn { display: none; font-size: 24px; color: var(--color-text-primary); cursor: pointer; z-index: 101; user-select: none; }
 
-    .sub-hero { background: linear-gradient(160deg, #0d2244 0%, #1a3a6b 60%, #2a548f 100%); padding: 5rem 2rem; text-align: center; color: #fff; }
-    .sub-hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; margin-bottom: 1rem; }
-    .sub-hero p { font-size: 16px; color: rgba(255,255,255,0.8); font-weight: 300; }
+    /* 서브페이지 히어로 */
+    .sub-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #020617 100%); 
+      padding: 6rem 2rem 5rem; 
+      text-align: center; 
+      position: relative; 
+      overflow: hidden;
+    }
+    .sub-hero::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 30%, rgba(184, 153, 58, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .sub-hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1rem; }
+    .sub-hero p { position: relative; font-size: 16px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-weight: 300; word-break: keep-all; }
 
-    section { padding: 5rem 2rem; }
+    section { padding: 5rem 2rem; overflow: hidden; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     
-    .lawyer-profile { display: flex; gap: 4rem; align-items: flex-start; margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--color-border-tertiary); }
-    .lawyer-profile:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    
-    /* 변호사 사진 스타일 */
-    .lawyer-img { width: 350px; height: 420px; flex-shrink: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); background-color: #eef2f6; position: relative; }
-    .lawyer-img img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
-    
-    /* 우준 변호사님 전용 꽉 차는 스타일 (cover) 추가 */
-    .lawyer-img.style-cover img {
-      object-fit: cover;
-      object-position: center;
-    }
-    
-    .lawyer-profile:hover .lawyer-img img { transform: scale(1.03); }
-    
-    .lawyer-info { flex-grow: 1; }
-    .lawyer-role { font-size: 15px; font-weight: 600; color: #b8993a; letter-spacing: 0.15em; margin-bottom: 0.8rem; text-transform: uppercase; }
-    .lawyer-name { font-family: 'Noto Serif KR', serif; font-size: 36px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; }
-    
-    .lawyer-quote { font-family: 'Noto Serif KR', serif; font-size: 17px; color: #1a3a6b; line-height: 1.6; margin-bottom: 2rem; font-style: italic; word-break: keep-all; }
-    
-    .lawyer-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem; }
-    .lawyer-tag { font-size: 13px; font-weight: 500; padding: 6px 14px; background: #f0f4f8; color: #1a3a6b; border-radius: 4px; border: 1px solid rgba(26, 58, 107, 0.1); }
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
-    .career-box { background: var(--color-background-secondary); padding: 2rem; border-radius: 8px; border: 1px solid var(--color-border-tertiary); }
-    .career-title { font-size: 16px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; border-bottom: 2px solid #1a3a6b; display: inline-block; padding-bottom: 4px; }
-    .career-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .career-list li { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 14px; position: relative; }
-    .career-list li::before { content: '■'; position: absolute; left: 0; top: 2px; color: #b8993a; font-size: 8px; }
+    /* 변호사 그리드 스타일 */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 2rem; }
+    .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+    .team-portrait { height: 350px; position: relative; overflow: hidden; background: var(--color-background-secondary); } 
+    .team-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
+    .team-portrait.style-cover img { object-fit: cover; object-position: center; }
+    .team-card:hover .team-portrait img { transform: scale(1.05); }
+    .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: #b8993a; z-index: 2; }
+    
+    .team-info { padding: 2.5rem; }
+    .team-role { font-size: 14px; font-weight: 600; color: #1a3a6b; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .team-name { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 600; margin-bottom: 1.5rem; }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; margin-bottom: 2rem; }
+    .team-tag { font-size: 13px; font-weight: 500; padding: 6px 14px; background: var(--color-background-secondary); color: #1a3a6b; border-radius: 4px; border: 1px solid var(--color-border-tertiary); }
+    .career-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .career-list li { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 14px; position: relative; word-break: keep-all; }
+    .career-list li::before { content: '·'; position: absolute; left: 0; color: #1a3a6b; font-weight: bold; font-size: 16px; }
 
-    /* 팝업 모달 스타일 */
+    /* 공통 푸터 및 모달 */
+    footer { background: #020617; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    .floating-wrap { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+    .floating-btn { border: none; border-radius: 50px; padding: 14px 24px; font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; text-decoration: none; }
+    .floating-btn.kakao { background-color: #FEE500; color: #000000; }
+    .floating-btn.kakao:hover { background-color: #E5CF00; transform: translateY(-3px); }
+    .floating-btn.consult { background-color: #0f172a; color: #ffffff; }
+    .floating-btn.consult:hover { background-color: #1e293b; transform: translateY(-3px); }
+
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
     .modal-overlay.active { display: flex; opacity: 1; }
-    .modal-content { background: #0d2244; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3); }
+    .modal-content { background: #0f172a; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; border: 1px solid rgba(184,153,58,0.3); }
     .modal-overlay.active .modal-content { transform: translateY(0); }
     .modal-close { position: absolute; top: 15px; right: 20px; color: #fff; font-size: 28px; font-weight: 300; cursor: pointer; background: none; border: none; padding: 0; line-height: 1; }
     .modal-title { color: #fff; font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; margin-bottom: 0.5rem; text-align: center; }
     .modal-desc { color: rgba(255,255,255,0.7); font-size: 14px; text-align: center; margin-bottom: 2rem; }
-    
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .form-input, .form-textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 14px 16px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; outline: none; width: 100%; transition: border-color 0.2s; margin-bottom: 1rem; }
-    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.4); }
     .form-input:focus, .form-textarea:focus { border-color: #b8993a; }
     .form-textarea { resize: vertical; min-height: 100px; margin-bottom: 0; }
-    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
+    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
     .btn-submit:hover { background: #a38630; }
 
-    footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
-    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
-    .footer-logo span { color: #4a90e2; }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
-
-    /* ★ 모바일 최적화 (반응형 웹) 스타일 시작 ★ */
     @media (max-width: 768px) {
-      /* 여백 및 글자 크기 조정 */
       nav { padding: 0 1rem; }
-      section { padding: 4rem 1.5rem; }
-      .lawyer-profile { flex-direction: column; gap: 2.5rem; }
-      .lawyer-img { width: 100%; height: 350px; max-width: 400px; margin: 0 auto; }
-      .lawyer-name { font-size: 28px; }
-      .lawyer-quote { font-size: 16px; }
-      
-      /* 모바일 네비게이션 작동 설정 */
       .mobile-menu-btn { display: block; }
-      .nav-links {
-        display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0;
-      }
+      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: rgba(239, 236, 229, 0.98); box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
-      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; font-size: 16px; }
-      .nav-links a.active { border-bottom: 1px solid var(--color-border-tertiary); font-weight: 600; color: #1a3a6b; }
-      .nav-links a:last-child { border-bottom: none; }
-      
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-      .form-row .form-input { margin-bottom: 1rem; }
+      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; }
+      .team-portrait { height: 300px; }
+      .floating-wrap { bottom: 20px; right: 20px; }
+      .floating-btn { padding: 12px 20px; font-size: 14px; }
     }
   </style>
 </head>
 <body>
   <div class="site">
     <nav>
-      <a href="index.html" class="nav-logo">법률사무소 <span>청하</span></a>
+      <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="법률사무소 청하" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display: none;">법률사무소 청하</span>
+      </a>
       <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
       <div class="nav-links" id="navMenu">
         <a href="about.html">소개</a>
         <a href="services.html">업무 분야</a>
-        <a href="team.html" class="active">변호사</a>
+        <a href="team.html" style="color: #b8993a; font-weight: 600;">변호사</a>
         <a onclick="openModal()">상담</a>
       </div>
     </nav>
 
     <div class="sub-hero">
-      <h1>변호사 소개</h1>
-      <p>당신의 편에서 가장 든든하게 싸워줄 법률 파트너를 소개합니다.</p>
+      <h1 class="reveal">탁월한 결과로 증명하는 전문가</h1>
+      <p class="reveal" style="transition-delay: 0.1s;">수많은 승소 사례로 검증된 청하의 변호사들을 소개합니다.</p>
     </div>
 
     <section>
       <div class="section-inner">
-        <div class="lawyer-profile">
-          <div class="lawyer-img">
-            <img src="대표변호사.png" alt="이선우 대표 변호사">
-          </div>
-          <div class="lawyer-info">
-            <div class="lawyer-role">Managing Partner</div>
-            <h3 class="lawyer-name">이선우 대표변호사</h3>
-            <div class="lawyer-quote">"법의 무게를 알기에, 당신의 권리를 지키는 일에 타협하지 않습니다."</div>
-            <div class="lawyer-tags">
-              <span class="lawyer-tag">검사 출신</span>
-              <span class="lawyer-tag">형사</span>
-              <span class="lawyer-tag">민사</span>
-              <span class="lawyer-tag">부동산</span>
+        <div class="team-grid">
+          <div class="team-card reveal">
+            <div class="team-portrait">
+              <img src="대표변호사.png" alt="이선우 대표 변호사">
+              <div class="team-bar"></div>
             </div>
-            <div class="career-box">
-              <div class="career-title">학력 및 주요 경력</div>
+            <div class="team-info">
+              <div class="team-role">대표 변호사</div>
+              <div class="team-name">이선우</div>
+              <div class="team-tags">
+                <span class="team-tag">검사 출신</span>
+                <span class="team-tag">형사 전문</span>
+                <span class="team-tag">민사</span>
+                <span class="team-tag">부동산</span>
+              </div>
               <ul class="career-list">
                 <li>서울대학교 법과대학 졸업</li>
                 <li>제14회 사법고시 합격</li>
@@ -171,42 +165,34 @@
                 <li>前 대구지방검찰청 형사1부 부장검사</li>
                 <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
                 <li>前 법무법인 대륙아주 변호사</li>
-                <li>前 법무법인 새로 변호사</li>
                 <li>現 법률사무소 청하 대표변호사</li>
               </ul>
             </div>
           </div>
-        </div>
-
-        <div class="lawyer-profile">
-          <div class="lawyer-img style-cover">
-            <img src="최우준변호사.webp" alt="최우준 변호사">
-          </div>
-          <div class="lawyer-info">
-            <div class="lawyer-role">Partner Attorney</div>
-            <h3 class="lawyer-name">최우준 변호사</h3>
-            <div class="lawyer-quote">"날카로운 법리와 따뜻한 공감으로, 얽힌 문제를 가장 현명하게 풀어냅니다."</div>
-            <div class="lawyer-tags">
-              <span class="lawyer-tag">민사</span>
-              <span class="lawyer-tag">형사·소년</span>
-              <span class="lawyer-tag">엔터·지적재산권</span>
-              <span class="lawyer-tag">산재·노동</span>
-              <span class="lawyer-tag">의료</span>
+          
+          <div class="team-card reveal" style="transition-delay: 0.2s;">
+            <div class="team-portrait style-cover">
+              <img src="최우준변호사.webp" alt="최우준 변호사">
+              <div class="team-bar"></div>
             </div>
-            <div class="career-box">
-              <div class="career-title">학력 및 주요 경력</div>
+            <div class="team-info">
+              <div class="team-role">변호사</div>
+              <div class="team-name">최우준</div>
+              <div class="team-tags">
+                <span class="team-tag">민사 전문</span>
+                <span class="team-tag">엔터·지적재산권</span>
+                <span class="team-tag">형사·소년</span>
+                <span class="team-tag">산재·노동</span>
+                <span class="team-tag">의료</span>
+              </div>
               <ul class="career-list">
                 <li>동국대학교 법학과 우등 졸업</li>
                 <li>충남대학교 법학전문대학원 졸업</li>
                 <li>제13회 변호사시험 합격</li>
-                <li>법제처 실무수습</li>
-                <li>제8회 특허소송변론대회 입선</li>
-                <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상 수상</li>
+                <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상</li>
                 <li>아동심리상담사 1급</li>
-                <li>現 거원초등학교 변호사 명예교사</li>
                 <li>現 SMGS 브랜드 법률고문</li>
                 <li>現 KGM 노동조합 자문 변호사</li>
-                <li>재즈기자 · SMGS 등 다수 유튜브 채널 출연</li>
                 <li>유튜브 〈별걸다하는 최변〉 운영</li>
               </ul>
             </div>
@@ -216,9 +202,14 @@
     </section>
 
     <footer>
-      <div class="footer-logo">법률사무소 <span>청하</span></div>
+      <div class="footer-logo">법률사무소 청하</div>
       <div class="footer-copy">© 2026 Law Office Chungha. All rights reserved.</div>
     </footer>
+  </div>
+
+  <div class="floating-wrap">
+    <a href="https://open.kakao.com/o/spo3Demi" target="_blank" class="floating-btn kakao">💬 카톡 상담</a>
+    <button class="floating-btn consult" onclick="openModal()">📝 온라인 상담</button>
   </div>
 
   <div class="modal-overlay" id="contactModal">
@@ -232,7 +223,7 @@
           <input class="form-input" type="tel" name="연락처" placeholder="연락처" required />
         </div>
         <input class="form-input" type="email" name="이메일" placeholder="이메일" required />
-        <input class="form-input" type="text" name="상담분야" placeholder="상담 분야 (예: 형사변호, 부동산 분쟁)" />
+        <input class="form-input" type="text" name="상담분야" placeholder="상담 분야" />
         <textarea class="form-textarea" name="상담내용" placeholder="상담 내용을 간략히 적어주세요." required></textarea>
         <button type="submit" class="btn-submit">상담 신청하기</button>
       </form>
@@ -240,38 +231,37 @@
   </div>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("navMenu");
-      menu.classList.toggle("active");
-    }
-    const modal = document.getElementById('contactModal');
-    function openModal() { modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-
-    document.getElementById("popupContactForm").addEventListener("submit", async function(event) {
-      event.preventDefault(); 
-      const form = event.target;
-      const data = new FormData(form);
-      const submitButton = form.querySelector('.btn-submit');
-      const originalButtonText = submitButton.innerText;
-      submitButton.innerText = "전송 중...";
-      submitButton.disabled = true;
-
-      try {
-        const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }});
-        if (response.ok) {
-          alert("상담 신청이 성공적으로 완료되었습니다. 빠르게 연락드리겠습니다.");
-          form.reset(); closeModal(); 
-        } else {
-          alert("제출에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.");
-        }
-      } catch (error) {
-        alert("네트워크 오류가 발생했습니다. 다시 시도해 주세요.");
-      } finally {
-        submitButton.innerText = originalButtonText; submitButton.disabled = false;
-      }
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     });
+
+    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
+    const modal = document.getElementById('contactModal');
+    function openModal() { if(modal) modal.classList.add('active'); }
+    function closeModal() { if(modal) modal.classList.remove('active'); }
+    if(modal) { modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); }); }
+
+    const contactForm = document.getElementById("popupContactForm");
+    if(contactForm) {
+      contactForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const submitButton = event.target.querySelector('.btn-submit');
+        const originalText = submitButton.innerText;
+        submitButton.innerText = "전송 중...";
+        submitButton.disabled = true;
+        try {
+          const response = await fetch(event.target.action, { method: event.target.method, body: new FormData(event.target), headers: { 'Accept': 'application/json' }});
+          if (response.ok) { alert("상담 신청이 완료되었습니다."); event.target.reset(); closeModal(); } 
+          else { alert("문제가 발생했습니다."); }
+        } catch (error) { alert("네트워크 오류입니다."); } 
+        finally { submitButton.innerText = originalText; submitButton.disabled = false; }
+      });
+    }
   </script>
 </body>
 </html>
