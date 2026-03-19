@@ -9,11 +9,11 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
 
     :root {
-      /* 한 톤 더 다운된, 차분하고 고급스러운 웜그레이(Warm Gray) & 샌드 베이지 톤 */
+      /* 고급스러운 웜그레이 톤 (이전 버전 유지) */
       --color-background-primary: #efece5; 
       --color-background-secondary: #e6e2d8;
-      --color-text-primary: #212529;
-      --color-text-secondary: #495057;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #4a4a4a;
       --color-border-tertiary: #d2ceca;
       --border-radius-lg: 8px;
     }
@@ -36,52 +36,70 @@
     }
     .nav-logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
     .nav-logo img { height: 40px; width: auto; object-fit: contain; }
-    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #1a3a6b; }
+    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #1a1a1a; }
     
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
-    .nav-links a:hover { color: #1a3a6b; }
+    .nav-links a:hover { color: #b8993a; }
     
     .mobile-menu-btn { display: none; font-size: 24px; color: var(--color-text-primary); cursor: pointer; z-index: 101; user-select: none; }
 
-    /* 히어로 섹션 */
+    /* ★ 대문 히어로 섹션 (다크&프리미엄) ★ */
     .hero {
-      background: linear-gradient(160deg, #0d2244 0%, #1a3a6b 60%, #2a548f 100%);
-      padding: 7rem 2rem 6rem; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #020617 100%); /* 깊고 묵직한 다크 슬레이트 컬러 */
+      padding: 8rem 2rem 7rem; 
+      text-align: center; 
+      position: relative; 
+      overflow: hidden;
     }
-    .hero-badge { display: inline-block; font-size: 12px; letter-spacing: 0.15em; color: #b8993a; border: 1px solid #b8993a; padding: 6px 16px; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; }
-    .hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 1.2rem; }
-    
-    .hero p { 
-      font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.8; 
-      max-width: 580px; margin: 0 auto 3rem; font-weight: 300; 
-      text-align: center; word-break: keep-all; 
+    /* 은은한 빛번짐 효과 추가 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 30%, rgba(184, 153, 58, 0.08) 0%, transparent 60%);
+      pointer-events: none;
     }
+
+    .hero-badge { position: relative; display: inline-block; font-size: 12px; letter-spacing: 0.15em; color: #d4af37; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(212, 175, 55, 0.05); padding: 6px 16px; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; border-radius: 4px; }
+    .hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 54px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1.2rem; }
+    .hero p { position: relative; font-size: 16.5px; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 600px; margin: 0 auto 3rem; font-weight: 300; text-align: center; word-break: keep-all; }
     
-    .hero-cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .hero-cta { position: relative; display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; z-index: 2; }
     
     .btn-primary, .btn-outline {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 14px 32px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; 
-      border-radius: 4px; text-decoration: none; transition: all 0.2s; 
+      border-radius: 4px; text-decoration: none; transition: all 0.3s; 
       font-family: 'Noto Sans KR', sans-serif; min-width: 150px; cursor: pointer;
     }
-    .btn-primary { background: #ffffff; color: #1a3a6b; border: 1px solid #ffffff; }
-    .btn-primary:hover { background: #f0f4f8; transform: translateY(-2px); }
-    .btn-outline { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.8); }
+    .btn-primary { background: #b8993a; color: #ffffff; border: 1px solid #b8993a; box-shadow: 0 4px 15px rgba(184,153,58,0.2); }
+    .btn-primary:hover { background: #a38630; border-color: #a38630; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,153,58,0.3); }
+    .btn-outline { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.4); }
     .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; transform: translateY(-2px); }
     
-    .hero-stats { display: flex; justify-content: center; gap: 4rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+    .hero-stats { position: relative; display: flex; justify-content: center; gap: 5rem; margin-top: 5rem; padding-top: 3.5rem; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
     .stat { text-align: center; }
-    .stat-num { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .stat-label { font-size: 13px; font-weight: 500; color: #b8993a; letter-spacing: 0.1em; }
-    .stat-desc { font-size: 13.5px; color: rgba(255,255,255,0.7); margin-top: 6px; font-weight: 300; }
+    .stat-num { font-family: 'Noto Serif KR', serif; font-size: 34px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .stat-label { font-size: 13.5px; font-weight: 500; color: #d4af37; letter-spacing: 0.05em; }
+    .stat-desc { font-size: 13.5px; color: rgba(255,255,255,0.5); margin-top: 6px; font-weight: 300; }
 
-    section { padding: 6rem 2rem; scroll-margin-top: 70px; }
+    section { padding: 6rem 2rem; scroll-margin-top: 70px; overflow: hidden; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; color: #b8993a; text-transform: uppercase; margin-bottom: 0.8rem; }
     .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
     .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; }
+
+    /* ★ 스크롤 페이드인(떠오르기) 애니메이션 클래스 ★ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); /* 스무스한 감속 */
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .about { background: var(--color-background-primary); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
@@ -94,8 +112,8 @@
     .services { background: var(--color-background-secondary); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
     .service-card { background: var(--color-background-primary); padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid var(--color-border-tertiary); transition: transform 0.2s; }
-    .service-card:hover { transform: translateY(-5px); }
-    .service-icon { font-size: 24px; margin-bottom: 1.5rem; width: 50px; height: 50px; background: #0d2244; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b8993a; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+    .service-icon { font-size: 24px; margin-bottom: 1.5rem; width: 50px; height: 50px; background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b8993a; box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
     .service-name { font-size: 18px; font-weight: 600; margin-bottom: 1rem; color: var(--color-text-primary); }
     .service-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
 
@@ -118,89 +136,75 @@
     .career-list li { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 12px; position: relative; }
     .career-list li::before { content: '·'; position: absolute; left: 0; color: #1a3a6b; font-weight: bold; }
 
-    footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
-    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
-
-    /* 플로팅 듀얼 버튼 (카톡 & 빠른상담) */
-    .floating-wrap {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 999;
-    }
-    .floating-btn {
-      border: none;
-      border-radius: 50px;
-      padding: 14px 24px;
-      font-family: 'Noto Sans KR', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      cursor: pointer;
+    /* ★ 오시는 길 & 연락처 복구 ★ */
+    .contact { background: #0f172a; color: #ffffff; }
+    .contact .section-title { color: #ffffff; }
+    .contact .section-desc { color: rgba(255,255,255,0.7); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 4rem; align-items: stretch; }
+    .contact-items { display: flex; flex-direction: column; gap: 2.5rem; justify-content: center; }
+    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .contact-icon { width: 44px; height: 44px; flex-shrink: 0; border: 1px solid rgba(184,153,58,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #b8993a; background: rgba(184,153,58,0.05); }
+    .contact-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; margin-bottom: 6px; }
+    .contact-value { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; }
+    
+    /* 지도 컨테이너 */
+    .map-box {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      background-color: #1e293b;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      text-decoration: none;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
     }
+
+    footer { background: #020617; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+    /* 플로팅 듀얼 버튼 */
+    .floating-wrap { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+    .floating-btn { border: none; border-radius: 50px; padding: 14px 24px; font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; text-decoration: none; }
     .floating-btn.kakao { background-color: #FEE500; color: #000000; }
     .floating-btn.kakao:hover { background-color: #E5CF00; transform: translateY(-3px); }
-    .floating-btn.consult { background-color: #111a28; color: #ffffff; }
-    .floating-btn.consult:hover { background-color: #1e304a; transform: translateY(-3px); }
+    .floating-btn.consult { background-color: #0f172a; color: #ffffff; }
+    .floating-btn.consult:hover { background-color: #1e293b; transform: translateY(-3px); }
 
-    /* 모달 팝업 및 공통 유틸리티 */
+    /* 모달 팝업 */
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
     .modal-overlay.active { display: flex; opacity: 1; }
-    .modal-content { background: #0d2244; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3); }
+    .modal-content { background: #0f172a; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3); }
     .modal-overlay.active .modal-content { transform: translateY(0); }
     .modal-close { position: absolute; top: 15px; right: 20px; color: #fff; font-size: 28px; font-weight: 300; cursor: pointer; background: none; border: none; padding: 0; line-height: 1; }
     .modal-title { color: #fff; font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; margin-bottom: 0.5rem; text-align: center; }
     .modal-desc { color: rgba(255,255,255,0.7); font-size: 14px; text-align: center; margin-bottom: 2rem; }
-    
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .form-input, .form-textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 14px 16px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; outline: none; width: 100%; transition: border-color 0.2s; margin-bottom: 1rem; }
-    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.4); }
     .form-input:focus, .form-textarea:focus { border-color: #b8993a; }
     .form-textarea { resize: vertical; min-height: 100px; margin-bottom: 0; }
-    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
+    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
     .btn-submit:hover { background: #a38630; }
 
     /* 모바일 최적화 */
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       section { padding: 4rem 1.5rem; }
-      .hero { padding: 5rem 1.5rem 4rem; }
+      .hero { padding: 6rem 1.5rem 5rem; }
       .hero-cta { flex-direction: column; width: 100%; }
       .btn-primary, .btn-outline { width: 100%; }
       .hero-stats { gap: 2.5rem; margin-top: 3rem; flex-direction: column; align-items: center; }
-      
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; margin-top: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .map-box { min-height: 250px; }
       .mobile-menu-btn { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: rgba(239, 236, 229, 0.98); box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
-      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; font-size: 16px; }
-      .nav-links a:last-child { border-bottom: none; }
-      
+      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; }
       .floating-wrap { bottom: 20px; right: 20px; }
       .floating-btn { padding: 12px 20px; font-size: 14px; }
-    }
-
-    /* 카카오 지도 컨테이너 스타일 */
-    .map-box {
-      width: 100%;
-      height: 350px;
-      border-radius: var(--border-radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--color-border-tertiary);
-      margin-top: 3rem;
-      background-color: var(--color-background-secondary);
     }
   </style>
 </head>
@@ -221,16 +225,16 @@
     </nav>
 
     <div class="hero">
-      <div class="hero-badge">Law Office Chungha</div>
-      <h1>정의를 향한<br>흔들리지 않는 신념</h1>
-      <p>법률사무소 청하는 의뢰인의 권리를 최우선으로 생각합니다.<br>명확한 법률 조언과 풍부한 경험으로 최선의 결과를 이끌어냅니다.</p>
-      <div class="hero-cta">
+      <div class="hero-badge reveal">Law Office Chungha</div>
+      <h1 class="reveal" style="transition-delay: 0.1s;">정의를 향한<br>흔들리지 않는 신념</h1>
+      <p class="reveal" style="transition-delay: 0.2s;">법률사무소 청하는 의뢰인의 권리를 최우선으로 생각합니다.<br>명확한 법률 조언과 풍부한 경험으로 최선의 결과를 이끌어냅니다.</p>
+      <div class="hero-cta reveal" style="transition-delay: 0.3s;">
         <a onclick="openModal()" class="btn-primary">상담 신청</a>
         <a href="services.html" class="btn-outline">주요 업무 안내</a>
       </div>
-      <div class="hero-stats">
+      <div class="hero-stats reveal" style="transition-delay: 0.5s;" id="stats-container">
         <div class="stat">
-          <div class="stat-num" id="year-counter">1</div> 
+          <div class="stat-num" id="year-counter">0년+</div> 
           <div class="stat-label">축적된 실무 내공</div>
           <div class="stat-desc">수십 년간 쌓아온 흔들림 없는 승소 노하우</div>
         </div>
@@ -248,7 +252,7 @@
     </div>
 
     <section class="about" id="about">
-      <div class="section-inner">
+      <div class="section-inner reveal">
         <div class="section-label">About Us</div>
         <h2 class="section-title">의뢰인과 함께하는<br>신뢰의 법률 파트너</h2>
         <p class="section-desc">법률사무소 청하는 민사·형사·부동산·엔터테인먼트 등 다양한 분야에서 의뢰인의 입장에서 생각하고, 최선의 법률 서비스를 제공합니다.</p>
@@ -290,7 +294,7 @@
     </section>
 
     <section class="services" id="services">
-      <div class="section-inner">
+      <div class="section-inner reveal">
         <div class="section-label">Practice Areas</div>
         <h2 class="section-title">주요 업무 분야</h2>
         <p class="section-desc">다양한 법률 분야에서 전문적인 서비스를 제공합니다.</p>
@@ -310,27 +314,12 @@
             <div class="service-name">엔터테인먼트</div>
             <div class="service-desc">전속계약, 저작권, 초상권, 아티스트·매니지먼트 분쟁 등 연예·문화 산업 법률 업무를 지원합니다.</div>
           </div>
-          <div class="service-card">
-            <div class="service-icon">🏢</div>
-            <div class="service-name">부동산 분쟁</div>
-            <div class="service-desc">지역주택조합, 분양계약, 임대차 분쟁, 재개발·재건축 관련 법률 문제를 처리합니다.</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">👨‍👩‍👧</div>
-            <div class="service-name">가사·상속</div>
-            <div class="service-desc">이혼, 양육권, 상속 분쟁 등 가족 관련 법률 문제를 세심하게 처리합니다.</div>
-          </div>
-          <div class="service-card">
-            <div class="service-icon">🏥</div>
-            <div class="service-name">의료 분쟁</div>
-            <div class="service-desc">의료 사고, 과실 입증 및 손해배상 등 의료 소송 전반을 전문적으로 대리합니다.</div>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="team" id="team">
-      <div class="section-inner">
+      <div class="section-inner reveal">
         <div class="section-label">Our Attorneys</div>
         <h2 class="section-title">변호사 소개</h2>
         <p class="section-desc">풍부한 경험과 전문성으로 의뢰인의 권익을 지킵니다.</p>
@@ -357,7 +346,6 @@
                 <li>前 대구지방검찰청 형사1부 부장검사</li>
                 <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
                 <li>前 법무법인 대륙아주 변호사</li>
-                <li>前 법무법인 새로 변호사</li>
                 <li>現 법률사무소 청하 대표변호사</li>
               </ul>
             </div>
@@ -382,24 +370,56 @@
                 <li>동국대학교 법학과 우등 졸업</li>
                 <li>충남대학교 법학전문대학원 졸업</li>
                 <li>제13회 변호사시험 합격</li>
-                <li>법제처 실무수습</li>
-                <li>제8회 특허소송변론대회 입선</li>
-                <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상 수상</li>
+                <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상</li>
                 <li>아동심리상담사 1급</li>
-                <li>現 거원초등학교 변호사 명예교사</li>
                 <li>現 SMGS 브랜드 법률고문</li>
                 <li>現 KGM 노동조합 자문 변호사</li>
-                <li>재즈기자 · SMGS 등 다수 유튜브 채널 출연</li>
                 <li>유튜브 〈별걸다하는 최변〉 운영</li>
               </ul>
             </div>
           </div>
         </div>
-        
-        <h2 class="section-title" style="margin-top: 5rem;">오시는 길</h2>
-        <p class="section-desc">서울특별시 서초구 서초대로50길 31, 백송빌딩 4층 (02-6949-6265)</p>
-        <div id="map" class="map-box"></div>
+      </div>
+    </section>
 
+    <section class="contact" id="contact">
+      <div class="section-inner reveal">
+        <div class="section-label" style="color: rgba(184,153,58,0.9);">Contact</div>
+        <h2 class="section-title">오시는 길 및 연락처</h2>
+        <p class="section-desc">언제든 편하게 문의해 주세요. 방문 전 예약하시면 더욱 원활한 상담이 가능합니다.</p>
+        
+        <div class="contact-grid">
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-label">주소</div>
+                <div class="contact-value">서울특별시 서초구 서초대로50길 31<br>백송빌딩 4층</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-label">전화</div>
+                <div class="contact-value">02-6949-6265</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div>
+                <div class="contact-label">상담 시간</div>
+                <div class="contact-value">평일 09:00 – 18:00<br>토요일 09:00 – 13:00</div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="map" class="map-box">
+            <p style="color:rgba(255,255,255,0.5); font-size:14px;">
+              🗺️ <strong>지도를 불러오고 있습니다.</strong><br>
+              (지도가 뜨지 않는다면 하단 스크립트에 카카오 API 키를 입력해 주세요)
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -436,48 +456,72 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_자바스크립트_키를_넣으세요"></script>
   
   <script>
-    /* 부드럽고 고급스러운 숫자 카운트 애니메이션 (이징 적용) */
+    /* 1. 부드럽고 시원한 숫자 카운트 (0에서 20까지 빠르게 샥!) */
     function animateValue(obj, start, end, duration) {
       let startTimestamp = null;
       const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
-        // 진행도 계산 (0 ~ 1)
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        // 부드러운 감속 효과 (easeOutExpo)
-        const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
         
-        obj.innerHTML = Math.floor(easeOut * (end - start) + start) + "년+";
+        // 빠른 속도로 올라가다가 부드럽게 안착하는 이징(easeOutQuart)
+        const easeOut = 1 - Math.pow(1 - progress, 4);
+        const current = Math.floor(easeOut * (end - start) + start);
+        
+        obj.innerHTML = current + "년+";
+        
         if (progress < 1) {
           window.requestAnimationFrame(step);
+        } else {
+          obj.innerHTML = end + "년+"; // 끝날 땐 확실하게 20으로 고정
         }
       };
       window.requestAnimationFrame(step);
     }
 
+    /* 2. 스크롤 포커스(Fade-in) 및 카운터 트리거 설정 */
     document.addEventListener("DOMContentLoaded", () => {
-      const counter = document.getElementById("year-counter");
-      // 페이지 로드 0.5초 후, 2초(2000ms) 동안 부드럽게 1에서 20까지 올라감
-      setTimeout(() => animateValue(counter, 1, 20, 2000), 500);
+      // 카운터가 화면에 나타날 때 한 번만 실행되도록 설정
+      let counterAnimated = false;
+      const counterEl = document.getElementById("year-counter");
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          // 화면에 요소가 보이면 .active 클래스 추가해서 떠오르게 만듦
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            
+            // 만약 나타난 요소가 카운터가 있는 통계 박스라면 애니메이션 시작! (1.2초 동안)
+            if (entry.target.id === 'stats-container' && !counterAnimated) {
+              animateValue(counterEl, 0, 20, 1200); 
+              counterAnimated = true;
+            }
+          }
+        });
+      }, { threshold: 0.1 }); // 화면에 10%만 보여도 작동
 
-      /* 카카오 지도 렌더링 스크립트 */
+      // .reveal 클래스가 있는 모든 요소를 관찰
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => observer.observe(el));
+
+      /* 3. 카카오 지도 렌더링 */
       if (typeof kakao !== 'undefined' && kakao.maps) {
         kakao.maps.load(function() {
           var mapContainer = document.getElementById('map'); 
-          
-          // 위도(lat), 경도(lng) 값. (임시로 서초역 인근으로 설정했습니다. 구글맵 우클릭 시 정확한 숫자가 나옵니다.)
-          var lat = 37.4908079374667;
-          var lng = 127.013491747541;
+          // 서초동 백송빌딩 정확한 위도, 경도 좌표
+          var lat = 37.49122; 
+          var lng = 127.00977; 
           
           var mapOption = { 
-              center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
-              level: 3 // 확대 레벨
+              center: new kakao.maps.LatLng(lat, lng), 
+              level: 3 
           };
-          var map = new kakao.maps.Map(mapContainer, mapOption); 
           
-          // 마커 찍기
+          // 지도 틀어지면 텍스트 지우고 지도 띄우기
+          mapContainer.innerHTML = ''; 
+          var map = new kakao.maps.Map(mapContainer, mapOption); 
           var markerPosition  = new kakao.maps.LatLng(lat, lng); 
           var marker = new kakao.maps.Marker({ position: markerPosition });
           marker.setMap(map);
@@ -485,12 +529,8 @@
       }
     });
 
-    /* 모바일 네비게이션 및 모달 기능 */
-    function toggleMenu() {
-      const menu = document.getElementById("navMenu");
-      menu.classList.toggle("active");
-    }
-    
+    /* 4. 기타 UI 기능 */
+    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
@@ -501,22 +541,21 @@
       const form = event.target;
       const data = new FormData(form);
       const submitButton = form.querySelector('.btn-submit');
-      const originalButtonText = submitButton.innerText;
+      const originalText = submitButton.innerText;
       submitButton.innerText = "전송 중...";
       submitButton.disabled = true;
 
       try {
         const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }});
         if (response.ok) {
-          alert("상담 신청이 완료되었습니다. 빠르게 연락드리겠습니다.");
-          form.reset(); closeModal(); 
+          alert("상담 신청이 완료되었습니다."); form.reset(); closeModal(); 
         } else {
-          alert("제출에 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+          alert("문제가 발생했습니다.");
         }
       } catch (error) {
-        alert("네트워크 오류가 발생했습니다.");
+        alert("네트워크 오류입니다.");
       } finally {
-        submitButton.innerText = originalButtonText; submitButton.disabled = false;
+        submitButton.innerText = originalText; submitButton.disabled = false;
       }
     });
   </script>
