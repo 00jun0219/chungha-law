@@ -456,30 +456,8 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
   
-  <script>
-    // 1. 지도 생성 스크립트 (카카오 공식 가이드 기준)
-    var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
-    var mapOption = { 
-        center: new kakao.maps.LatLng(37.4914554826548, 127.013569321577), // 청하 위도, 경도
-        level: 3 // 지도의 확대 레벨
-    };
-    
-    // 지도를 생성합니다
-    var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-    // 마커가 표시될 위치입니다 
-    var markerPosition  = new kakao.maps.LatLng(37.4914554826548, 127.013569321577); 
-
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        position: markerPosition
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-  </script>
   <script>
     /* 1. 버벅임 없는 직관적인 숫자 카운트 애니메이션 */
     function startCounterAnimation() {
@@ -487,7 +465,7 @@
       let count = 0;
       const target = 20;
       const duration = 1500; // 1.5초 동안 진행
-      const stepTime = Math.abs(Math.floor(duration / target)); // 숫자가 하나씩 올라가는 간격
+      const stepTime = Math.abs(Math.floor(duration / target)); 
       
       const timer = setInterval(() => {
         count += 1;
@@ -499,15 +477,15 @@
       }, stepTime);
     }
 
-    /* 2. 스크롤 포커스(Fade-in) 및 카운터 트리거 설정 */
+    /* 2. 스크롤 포커스(Fade-in) 및 카운터 트리거, 지도 렌더링 설정 */
     document.addEventListener("DOMContentLoaded", () => {
-      let counterAnimated = false;
       
+      // -- 숫자 카운터 & 스크롤 애니메이션 --
+      let counterAnimated = false;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            
             // 통계 박스가 화면에 보이면 숫자 카운터 시작
             if (entry.target.id === 'stats-container' && !counterAnimated) {
               startCounterAnimation();
@@ -520,27 +498,28 @@
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(el => observer.observe(el));
 
-      /* 3. 카카오 지도 렌더링 (제공해주신 위도, 경도 적용 완료) */
+      // -- 3. 카카오 지도 렌더링 (중복 제거 및 공식 가이드 적용) --
       if (typeof kakao !== 'undefined' && kakao.maps) {
-        kakao.maps.load(function() {
-          var mapContainer = document.getElementById('map'); 
-          var lat = 37.4914554826548; 
-          var lng = 127.013569321577; 
-          
-          var mapOption = { 
-              center: new kakao.maps.LatLng(lat, lng), 
-              level: 3 
-          };
-          
-          var map = new kakao.maps.Map(mapContainer, mapOption); 
-          var markerPosition  = new kakao.maps.LatLng(lat, lng); 
-          var marker = new kakao.maps.Marker({ position: markerPosition });
-          marker.setMap(map);
-        });
+        var mapContainer = document.getElementById('map'); 
+        var lat = 37.4914554826548; 
+        var lng = 127.013569321577; 
+        
+        var mapOption = { 
+            center: new kakao.maps.LatLng(lat, lng), 
+            level: 3 // 지도 확대 레벨
+        };
+        
+        // 지도를 생성합니다
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+        
+        // 마커를 생성하고 지도에 표시합니다
+        var markerPosition  = new kakao.maps.LatLng(lat, lng); 
+        var marker = new kakao.maps.Marker({ position: markerPosition });
+        marker.setMap(map);
       }
     });
 
-    /* 4. 기타 UI 기능 */
+    /* 4. 기타 UI 기능 (메뉴, 팝업 폼 등) */
     function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
