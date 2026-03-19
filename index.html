@@ -9,7 +9,6 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
 
     :root {
-      /* 고급스러운 웜그레이 톤 */
       --color-background-primary: #efece5; 
       --color-background-secondary: #e6e2d8;
       --color-text-primary: #1a1a1a;
@@ -23,7 +22,6 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-primary); line-height: 1.6; }
     
-    /* 네비게이션바 */
     nav {
       position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
       background-color: rgba(239, 236, 229, 0.95); 
@@ -44,7 +42,6 @@
     
     .mobile-menu-btn { display: none; font-size: 24px; color: var(--color-text-primary); cursor: pointer; z-index: 101; user-select: none; }
 
-    /* ★ 대문 히어로 섹션 (다크&프리미엄) ★ */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #020617 100%); 
       padding: 8rem 2rem 7rem; 
@@ -87,7 +84,6 @@
     .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
     .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; }
 
-    /* 스크롤 페이드인 효과 */
     .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -99,7 +95,6 @@
     .value-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
     .value-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
 
-    /* ★ 주요 업무 분야 (6개 완벽 적용) ★ */
     .services { background: var(--color-background-secondary); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
     .service-card { background: var(--color-background-primary); padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid var(--color-border-tertiary); transition: transform 0.2s; }
@@ -126,7 +121,6 @@
     .career-list li { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 12px; position: relative; }
     .career-list li::before { content: '·'; position: absolute; left: 0; color: #1a3a6b; font-weight: bold; }
 
-    /* 오시는 길 & 연락처 */
     .contact { background: #0f172a; color: #ffffff; }
     .contact .section-title { color: #ffffff; }
     .contact .section-desc { color: rgba(255,255,255,0.7); }
@@ -137,18 +131,12 @@
     .contact-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; margin-bottom: 6px; }
     .contact-value { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; }
     
-    /* 카카오 지도 컨테이너 */
+    /* ★ 핵심 수정: display:flex 제거, height 고정 ★ */
     .map-box {
       width: 100%;
-      height: 100%;
-      min-height: 350px;
+      height: 350px;
       border-radius: var(--border-radius-lg);
       overflow: hidden;
-      background-color: #1e293b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
       border: 1px solid rgba(255,255,255,0.1);
     }
 
@@ -156,7 +144,6 @@
     .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
     .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 
-    /* ★ 플로팅 듀얼 버튼 (아이콘 및 텍스트 직관적 수정) ★ */
     .floating-wrap { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
     .floating-btn { border: none; border-radius: 50px; padding: 14px 24px; font-family: 'Noto Sans KR', sans-serif; font-size: 15px; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.15); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s ease; text-decoration: none; }
     .floating-btn.kakao { background-color: #FEE500; color: #000000; }
@@ -164,7 +151,6 @@
     .floating-btn.consult { background-color: #0f172a; color: #ffffff; }
     .floating-btn.consult:hover { background-color: #1e293b; transform: translateY(-3px); }
 
-    /* 모달 팝업 */
     .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
     .modal-overlay.active { display: flex; opacity: 1; }
     .modal-content { background: #0f172a; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3); }
@@ -179,7 +165,6 @@
     .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
     .btn-submit:hover { background: #a38630; }
 
-    /* 모바일 최적화 */
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       section { padding: 4rem 1.5rem; }
@@ -188,7 +173,7 @@
       .btn-primary, .btn-outline { width: 100%; }
       .hero-stats { gap: 2.5rem; margin-top: 3rem; flex-direction: column; align-items: center; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .map-box { min-height: 250px; }
+      .map-box { height: 250px; }
       .mobile-menu-btn { display: block; }
       .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: rgba(239, 236, 229, 0.98); box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
@@ -418,8 +403,7 @@
             </div>
           </div>
           
-          <div id="map" class="map-box">
-             </div>
+          <div id="map" class="map-box"></div>
         </div>
       </div>
     </section>
@@ -457,70 +441,62 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=98de1e532296af72005a4bb93f4aedb1"></script>
+  <!-- ★ 수정: autoload=false 추가 ★ -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2740e6ad07092d55c0c4ee9abec7e4b2&autoload=false"></script>
   
   <script>
-    /* 1. 버벅임 없는 직관적인 숫자 카운트 애니메이션 */
+    /* 1. 숫자 카운트 애니메이션 */
     function startCounterAnimation() {
       const counterEl = document.getElementById("year-counter");
       let count = 0;
       const target = 20;
-      const duration = 1500; // 1.5초 동안 진행
-      const stepTime = Math.abs(Math.floor(duration / target)); 
-      
+      const stepTime = Math.abs(Math.floor(1500 / target));
       const timer = setInterval(() => {
         count += 1;
         counterEl.innerHTML = count + "년+";
         if (count >= target) {
           clearInterval(timer);
-          counterEl.innerHTML = target + "년+"; // 20에서 정확히 멈춤
+          counterEl.innerHTML = target + "년+";
         }
       }, stepTime);
     }
 
-    /* 2. 스크롤 포커스, 숫자 카운터, 그리고 완벽한 지도 렌더링을 하나로 통합 */
+    /* 2. 스크롤 페이드인 */
     document.addEventListener("DOMContentLoaded", () => {
-      
-      // -- 숫자 카운터 & 스크롤 애니메이션 --
       let counterAnimated = false;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            
-            // 통계 박스가 화면에 보이면 숫자 카운터 시작
             if (entry.target.id === 'stats-container' && !counterAnimated) {
               startCounterAnimation();
               counterAnimated = true;
             }
           }
         });
-      }, { threshold: 0.1 }); 
+      }, { threshold: 0.1 });
 
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach(el => observer.observe(el));
-
-      // -- 3. 카카오 지도 렌더링 (가장 안정적인 방식) --
-      var mapContainer = document.getElementById('map'); 
-      if(mapContainer) {
-          mapContainer.innerHTML = ''; // 기본 텍스트 지우기
-          
-          var lat = 37.4914554826548; 
-          var lng = 127.013569321577; 
-          
-          var mapOption = { 
-              center: new kakao.maps.LatLng(lat, lng), 
-              level: 3 
-          };
-          
-          var map = new kakao.maps.Map(mapContainer, mapOption); 
-          var markerPosition  = new kakao.maps.LatLng(lat, lng); 
-          var marker = new kakao.maps.Marker({ position: markerPosition });
-          marker.setMap(map);
-      }
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     });
 
-    /* 4. 기타 UI 기능 */
+    /* 3. ★ 핵심 수정: kakao.maps.load() 로 안전하게 지도 초기화 ★ */
+    kakao.maps.load(function() {
+      var mapContainer = document.getElementById('map');
+      var lat = 37.4914554826548;
+      var lng = 127.013569321577;
+
+      var map = new kakao.maps.Map(mapContainer, {
+        center: new kakao.maps.LatLng(lat, lng),
+        level: 3
+      });
+
+      var marker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(lat, lng)
+      });
+      marker.setMap(map);
+    });
+
+    /* 4. UI 기능 */
     function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
@@ -528,18 +504,17 @@
     modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
 
     document.getElementById("popupContactForm").addEventListener("submit", async function(event) {
-      event.preventDefault(); 
+      event.preventDefault();
       const form = event.target;
       const data = new FormData(form);
       const submitButton = form.querySelector('.btn-submit');
       const originalText = submitButton.innerText;
       submitButton.innerText = "전송 중...";
       submitButton.disabled = true;
-
       try {
         const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }});
         if (response.ok) {
-          alert("상담 신청이 완료되었습니다."); form.reset(); closeModal(); 
+          alert("상담 신청이 완료되었습니다."); form.reset(); closeModal();
         } else {
           alert("문제가 발생했습니다.");
         }
