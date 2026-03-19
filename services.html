@@ -22,9 +22,10 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-primary); line-height: 1.6; }
     
-    /* 네비게이션바 공통 */
+    /* ★ 수정됨: 스크롤 시 무조건 따라다니도록 position: fixed 적용 및 z-index 상향 ★ */
     nav {
-      position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
+      position: fixed; 
+      top: 0; left: 0; width: 100%; z-index: 1000;
       background-color: rgba(239, 236, 229, 0.95); 
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border-tertiary);
@@ -45,7 +46,7 @@
     /* 서브페이지 히어로 */
     .sub-hero {
       background: linear-gradient(135deg, #0f172a 0%, #020617 100%); 
-      padding: 6rem 2rem 5rem; 
+      padding: 8rem 2rem 5rem; /* nav가 fixed가 되면서 콘텐츠가 위로 올라붙는 것을 방지하기 위해 상단 패딩 증가 */
       text-align: center; 
       position: relative; 
       overflow: hidden;
