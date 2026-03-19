@@ -131,13 +131,13 @@
     .contact-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; margin-bottom: 6px; }
     .contact-value { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; }
     
-    /* ★ 핵심 수정: display:flex 제거, height 고정 ★ */
     .map-box {
       width: 100%;
       height: 350px;
       border-radius: var(--border-radius-lg);
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.1);
+      background-color: #1e293b;
     }
 
     footer { background: #020617; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -182,6 +182,8 @@
       .floating-btn { padding: 12px 20px; font-size: 14px; }
     }
   </style>
+  
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2740e6ad07092d55c0c4ee9abec7e4b2"></script>
 </head>
 <body>
   <div class="site">
@@ -441,13 +443,12 @@
     </div>
   </div>
 
-  <!-- ★ 수정: autoload=false 추가 ★ -->
-  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2740e6ad07092d55c0c4ee9abec7e4b2&autoload=false"></script>
-  
   <script>
     /* 1. 숫자 카운트 애니메이션 */
     function startCounterAnimation() {
       const counterEl = document.getElementById("year-counter");
+      if (!counterEl) return;
+      
       let count = 0;
       const target = 20;
       const stepTime = Math.abs(Math.floor(1500 / target));
@@ -461,8 +462,9 @@
       }, stepTime);
     }
 
-    /* 2. 스크롤 페이드인 */
+    /* 2. 스크롤 페이드인 및 지도/카운터 초기화 */
     document.addEventListener("DOMContentLoaded", () => {
+      // 카운터 트리거
       let counterAnimated = false;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -477,53 +479,73 @@
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    });
 
-    /* 3. ★ 핵심 수정: kakao.maps.load() 로 안전하게 지도 초기화 ★ */
-    kakao.maps.load(function() {
-      var mapContainer = document.getElementById('map');
-      var lat = 37.4914554826548;
-      var lng = 127.013569321577;
+      // 카카오 지도 초기화 (스크립트가 로드되었는지 확인 후 실행)
+      if (typeof kakao !== 'undefined' && kakao.maps) {
+        kakao.maps.load(function() {
+          var mapContainer = document.getElementById('map');
+          if (mapContainer) {
+            var lat = 37.4914554826548;
+            var lng = 127.013569321577;
 
-      var map = new kakao.maps.Map(mapContainer, {
-        center: new kakao.maps.LatLng(lat, lng),
-        level: 3
-      });
+            var map = new kakao.maps.Map(mapContainer, {
+              center: new kakao.maps.LatLng(lat, lng),
+              level: 3
+            });
 
-      var marker = new kakao.maps.Marker({
-        position: new kakao.maps.LatLng(lat, lng)
-      });
-      marker.setMap(map);
-    });
-
-    /* 4. UI 기능 */
-    function toggleMenu() { document.getElementById("navMenu").classList.toggle("active"); }
-    const modal = document.getElementById('contactModal');
-    function openModal() { modal.classList.add('active'); }
-    function closeModal() { modal.classList.remove('active'); }
-    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-
-    document.getElementById("popupContactForm").addEventListener("submit", async function(event) {
-      event.preventDefault();
-      const form = event.target;
-      const data = new FormData(form);
-      const submitButton = form.querySelector('.btn-submit');
-      const originalText = submitButton.innerText;
-      submitButton.innerText = "전송 중...";
-      submitButton.disabled = true;
-      try {
-        const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }});
-        if (response.ok) {
-          alert("상담 신청이 완료되었습니다."); form.reset(); closeModal();
-        } else {
-          alert("문제가 발생했습니다.");
-        }
-      } catch (error) {
-        alert("네트워크 오류입니다.");
-      } finally {
-        submitButton.innerText = originalText; submitButton.disabled = false;
+            var marker = new kakao.maps.Marker({
+              position: new kakao.maps.LatLng(lat, lng)
+            });
+            marker.setMap(map);
+          }
+        });
       }
     });
+
+    /* 3. 모바일 메뉴 및 팝업 폼 기능 (이제 정상 작동!) */
+    function toggleMenu() { 
+      const menu = document.getElementById("navMenu");
+      if (menu) menu.classList.toggle("active"); 
+    }
+    
+    const modal = document.getElementById('contactModal');
+    function openModal() { 
+      if (modal) modal.classList.add('active'); 
+    }
+    function closeModal() { 
+      if (modal) modal.classList.remove('active'); 
+    }
+    
+    if (modal) {
+      modal.addEventListener('click', function(e) { 
+        if (e.target === modal) closeModal(); 
+      });
+    }
+
+    const contactForm = document.getElementById("popupContactForm");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const data = new FormData(form);
+        const submitButton = form.querySelector('.btn-submit');
+        const originalText = submitButton.innerText;
+        submitButton.innerText = "전송 중...";
+        submitButton.disabled = true;
+        try {
+          const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }});
+          if (response.ok) {
+            alert("상담 신청이 완료되었습니다."); form.reset(); closeModal();
+          } else {
+            alert("문제가 발생했습니다.");
+          }
+        } catch (error) {
+          alert("네트워크 오류입니다.");
+        } finally {
+          submitButton.innerText = originalText; submitButton.disabled = false;
+        }
+      });
+    }
   </script>
 </body>
 </html>
