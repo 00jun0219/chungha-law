@@ -9,12 +9,12 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500;600&display=swap');
 
     :root {
-      /* 눈이 편안하고 고급스러운 톤으로 배경색과 글자색 수정 */
-      --color-background-primary: #fdfdfc; 
-      --color-background-secondary: #f4f5f7;
-      --color-text-primary: #1d2127;
-      --color-text-secondary: #4a5058;
-      --color-border-tertiary: #e5e7eb;
+      /* 너무 쨍한 흰색 대신, 눈이 편안하고 고급스러운 미색(크림 화이트)으로 변경! */
+      --color-background-primary: #faf9f6; 
+      --color-background-secondary: #f1f3f5;
+      --color-text-primary: #212529;
+      --color-text-secondary: #495057;
+      --color-border-tertiary: #dee2e6;
       --border-radius-lg: 8px;
     }
 
@@ -26,104 +26,103 @@
     /* 네비게이션바 */
     nav {
       position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
-      background-color: rgba(253, 253, 252, 0.95); 
+      background-color: rgba(250, 249, 246, 0.95); 
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border-tertiary);
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
-      height: 75px;
+      height: 70px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
     }
-    
-    /* 텍스트 대신 CI 로고 이미지가 들어가도록 수정 */
     .nav-logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
     .nav-logo img { height: 40px; width: auto; object-fit: contain; }
-    /* 만약 CI 이미지가 없을 때를 대비한 임시 텍스트 스타일 */
-    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #162235; }
+    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #1a3a6b; }
     
-    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-links a { font-size: 15px; font-weight: 500; color: var(--color-text-primary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
-    .nav-links a:hover { color: #b8993a; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
+    .nav-links a:hover { color: #1a3a6b; }
     
     .mobile-menu-btn { display: none; font-size: 24px; color: var(--color-text-primary); cursor: pointer; z-index: 101; user-select: none; }
 
-    /* 히어로 섹션 (차분하고 묵직한 네이비 톤으로 수정) */
+    /* 히어로 섹션 */
     .hero {
-      background: linear-gradient(135deg, #111a28 0%, #1e304a 100%);
-      padding: 8rem 2rem 7rem; text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(160deg, #0d2244 0%, #1a3a6b 60%, #2a548f 100%);
+      padding: 7rem 2rem 6rem; text-align: center; position: relative; overflow: hidden;
     }
-    .hero-badge { display: inline-block; font-size: 13px; letter-spacing: 0.15em; color: #b8993a; border: 1px solid rgba(184,153,58,0.5); background: rgba(184,153,58,0.1); padding: 6px 16px; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; border-radius: 4px; }
-    .hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 54px); font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 1.2rem; }
+    .hero-badge { display: inline-block; font-size: 12px; letter-spacing: 0.15em; color: #b8993a; border: 1px solid #b8993a; padding: 6px 16px; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; }
+    .hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 1.2rem; }
     
-    .hero p { font-size: 16.5px; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 600px; margin: 0 auto 3.5rem; font-weight: 300; text-align: center; word-break: keep-all; }
+    .hero p { 
+      font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.8; 
+      max-width: 580px; margin: 0 auto 3rem; font-weight: 300; 
+      text-align: center; word-break: keep-all; 
+    }
     
     .hero-cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     
     .btn-primary, .btn-outline {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 15px 36px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; 
-      border-radius: 4px; text-decoration: none; transition: all 0.3s; 
-      font-family: 'Noto Sans KR', sans-serif; min-width: 160px; cursor: pointer;
+      padding: 14px 32px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; 
+      border-radius: 4px; text-decoration: none; transition: all 0.2s; 
+      font-family: 'Noto Sans KR', sans-serif; min-width: 150px; cursor: pointer;
     }
-    .btn-primary { background: #b8993a; color: #ffffff; border: 1px solid #b8993a; box-shadow: 0 4px 15px rgba(184,153,58,0.3); }
-    .btn-primary:hover { background: #9d8130; border-color: #9d8130; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,153,58,0.4); }
-    .btn-outline { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.6); }
+    .btn-primary { background: #ffffff; color: #1a3a6b; border: 1px solid #ffffff; }
+    .btn-primary:hover { background: #f0f4f8; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.8); }
     .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; transform: translateY(-2px); }
     
-    .hero-stats { display: flex; justify-content: center; gap: 5rem; margin-top: 5rem; padding-top: 3.5rem; border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; }
+    .hero-stats { display: flex; justify-content: center; gap: 4rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
     .stat { text-align: center; }
-    .stat-num { font-family: 'Noto Serif KR', serif; font-size: 34px; font-weight: 600; color: #fff; margin-bottom: 5px; }
-    .stat-label { font-size: 14px; font-weight: 500; color: #b8993a; letter-spacing: 0.05em; }
-    .stat-desc { font-size: 13.5px; color: rgba(255,255,255,0.6); margin-top: 8px; font-weight: 300; }
+    .stat-num { font-family: 'Noto Serif KR', serif; font-size: 32px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+    .stat-label { font-size: 13px; font-weight: 500; color: #b8993a; letter-spacing: 0.1em; }
+    .stat-desc { font-size: 13.5px; color: rgba(255,255,255,0.7); margin-top: 6px; font-weight: 300; }
 
-    section { padding: 6rem 2rem; scroll-margin-top: 75px; }
+    section { padding: 6rem 2rem; scroll-margin-top: 70px; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; color: #b8993a; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
-    .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; word-break: keep-all; }
+    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
+    .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; }
 
-    /* 승소 사례 섹션 */
-    .success-cases { background: var(--color-background-secondary); }
-    .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .case-card { background: #ffffff; padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); border-top: 4px solid #b8993a; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease; display: flex; flex-direction: column; }
-    .case-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
-    .case-category { font-size: 13px; color: #b8993a; font-weight: 600; margin-bottom: 10px; }
-    .case-title { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; line-height: 1.4; }
-    .case-desc { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; word-break: keep-all; flex-grow: 1; }
-    .case-result { margin-top: 1.5rem; font-size: 14px; font-weight: 600; color: #162235; background: #f4f5f7; padding: 10px 15px; border-radius: 4px; text-align: center; }
+    .about { background: var(--color-background-primary); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
+    .about-values { display: flex; flex-direction: column; gap: 2rem; }
+    .value-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .value-icon { width: 44px; height: 44px; flex-shrink: 0; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+    .value-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--color-text-primary); }
+    .value-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
 
-    .btn-more { display: inline-block; padding: 12px 30px; border: 2px solid #1e304a; color: #1e304a; font-size: 15px; font-weight: 600; border-radius: 4px; text-decoration: none; transition: all 0.3s; margin-top: 3rem; }
-    .btn-more:hover { background: #1e304a; color: #ffffff; transform: translateY(-2px); }
-
-    /* 업무 분야 */
-    .services { background: var(--color-background-primary); }
+    .services { background: var(--color-background-secondary); }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
-    .service-card { background: var(--color-background-secondary); padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary); transition: transform 0.2s; }
+    .service-card { background: var(--color-background-primary); padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); box-shadow: 0 4px 20px rgba(0,0,0,0.02); border: 1px solid var(--color-border-tertiary); transition: transform 0.2s; }
     .service-card:hover { transform: translateY(-5px); }
-    .service-icon { font-size: 24px; margin-bottom: 1.5rem; width: 50px; height: 50px; background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b8993a; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .service-icon { font-size: 24px; margin-bottom: 1.5rem; width: 50px; height: 50px; background: #0d2244; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b8993a; }
     .service-name { font-size: 18px; font-weight: 600; margin-bottom: 1rem; color: var(--color-text-primary); }
-    .service-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; }
+    .service-desc { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
 
-    /* 상담 섹션 */
-    .contact { background: #111a28; }
-    .contact .section-title { color: #fff; }
-    .contact .section-desc { color: rgba(255,255,255,0.7); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 4rem; align-items: start; }
-    .contact-items { display: flex; flex-direction: column; gap: 2rem; }
-    .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .contact-icon { width: 44px; height: 44px; flex-shrink: 0; border: 1px solid rgba(184,153,58,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #b8993a; }
-    .contact-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; margin-bottom: 6px; }
-    .contact-value { font-size: 15px; color: rgba(255,255,255,0.9); line-height: 1.6; }
+    .team { background: var(--color-background-primary); }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
+    .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
     
-    .map-container { margin-top: 1rem; width: 100%; height: 250px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #1e304a; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); font-size: 14px; text-align: center; padding: 1rem; }
+    .team-portrait { height: 280px; position: relative; overflow: hidden; background: #eef2f6; } 
+    .team-portrait img { width: 100%; height: 100%; object-fit: contain; object-position: bottom; display: block; transition: transform 0.4s ease; }
+    .team-portrait.style-cover img { object-fit: cover; object-position: center; }
+    .team-card:hover .team-portrait img { transform: scale(1.05); }
+    .team-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #b8993a; z-index: 2; }
+    
+    .team-info { padding: 2rem; }
+    .team-role { font-size: 13px; font-weight: 600; color: #1a3a6b; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .team-name { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; margin-bottom: 1.2rem; }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; margin-bottom: 1.5rem; }
+    .team-tag { font-size: 12px; font-weight: 500; padding: 5px 12px; background: var(--color-background-secondary); color: #1a3a6b; border-radius: 4px; border: 1px solid var(--color-border-tertiary); }
+    .career-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .career-list li { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; padding-left: 12px; position: relative; }
+    .career-list li::before { content: '·'; position: absolute; left: 0; color: #1a3a6b; font-weight: bold; }
 
-    .contact-form { background: rgba(255,255,255,0.03); padding: 2.5rem; border-radius: var(--border-radius-lg); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-input, .form-textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 14px 16px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; outline: none; width: 100%; transition: border-color 0.2s; }
-    .form-input:focus, .form-textarea:focus { border-color: #b8993a; }
-    .form-textarea { resize: vertical; min-height: 120px; }
-    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 0.5rem; }
-    .btn-submit:hover { background: #9d8130; }
+    /* 불필요하고 깨지던 하단 Contact 폼 섹션은 아예 통째로 삭제했어! */
+
+    footer { background: #081629; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
 
     /* 플로팅 듀얼 버튼 (카톡 & 빠른상담) */
     .floating-wrap {
@@ -156,26 +155,40 @@
     .floating-btn.consult { background-color: #111a28; color: #ffffff; }
     .floating-btn.consult:hover { background-color: #1e304a; transform: translateY(-3px); }
 
-    footer { background: #0a0f18; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-logo { font-family: 'Noto Serif KR', serif; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 0.8rem; }
-    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+    /* 팝업 모달 스타일 */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 1000; opacity: 0; transition: opacity 0.3s ease; }
+    .modal-overlay.active { display: flex; opacity: 1; }
+    .modal-content { background: #0d2244; width: 90%; max-width: 500px; padding: 2.5rem; border-radius: 12px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 1px solid rgba(184,153,58,0.3); }
+    .modal-overlay.active .modal-content { transform: translateY(0); }
+    .modal-close { position: absolute; top: 15px; right: 20px; color: #fff; font-size: 28px; font-weight: 300; cursor: pointer; background: none; border: none; padding: 0; line-height: 1; }
+    .modal-title { color: #fff; font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; margin-bottom: 0.5rem; text-align: center; }
+    .modal-desc { color: rgba(255,255,255,0.7); font-size: 14px; text-align: center; margin-bottom: 2rem; }
+    
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-input, .form-textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 14px 16px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; outline: none; width: 100%; transition: border-color 0.2s; margin-bottom: 1rem; }
+    .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.4); }
+    .form-input:focus, .form-textarea:focus { border-color: #b8993a; }
+    .form-textarea { resize: vertical; min-height: 100px; margin-bottom: 0; }
+    .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 1.5rem; }
+    .btn-submit:hover { background: #a38630; }
 
     /* 모바일 최적화 */
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       section { padding: 4rem 1.5rem; }
-      .hero { padding: 6rem 1.5rem 5rem; }
+      .hero { padding: 5rem 1.5rem 4rem; }
       .hero-cta { flex-direction: column; width: 100%; }
       .btn-primary, .btn-outline { width: 100%; }
-      .hero-stats { gap: 2.5rem; flex-direction: column; align-items: center; }
+      .hero-stats { gap: 2.5rem; margin-top: 3rem; flex-direction: column; align-items: center; }
       
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; margin-top: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
       
       .mobile-menu-btn { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 75px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
-      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; }
+      .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; font-size: 16px; }
+      .nav-links a:last-child { border-bottom: none; }
       
       .floating-wrap { bottom: 20px; right: 20px; }
       .floating-btn { padding: 12px 20px; font-size: 14px; }
@@ -208,7 +221,7 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">20년+</div>
+          <div class="stat-num" id="year-counter">1</div> 
           <div class="stat-label">축적된 실무 내공</div>
           <div class="stat-desc">수십 년간 쌓아온 흔들림 없는 승소 노하우</div>
         </div>
@@ -225,36 +238,45 @@
       </div>
     </div>
 
-    <section class="success-cases" id="cases">
+    <section class="about" id="about">
       <div class="section-inner">
-        <div class="section-label">Success Stories</div>
-        <h2 class="section-title">청하의 승소 사례</h2>
-        <p class="section-desc">말로만 약속하지 않습니다. 압도적인 결과로 실력을 증명합니다.</p>
-        <div class="cases-grid">
-          <div class="case-card">
-            <div class="case-category">형사·소년</div>
-            <h3 class="case-title">수억 원대 사기 혐의,<br>전면 무죄 판결</h3>
-            <p class="case-desc">치밀한 증거 분석을 통해 검찰의 공소사실을 논리적으로 반박하여 1심 무죄를 이끌어낸 사례입니다.</p>
-            <div class="case-result">결과: 전부 무죄</div>
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">의뢰인과 함께하는<br>신뢰의 법률 파트너</h2>
+        <p class="section-desc">법률사무소 청하는 민사·형사·부동산·엔터테인먼트 등 다양한 분야에서 의뢰인의 입장에서 생각하고, 최선의 법률 서비스를 제공합니다.</p>
+        <div class="about-grid">
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon">⚖</div>
+              <div>
+                <div class="value-title">공정과 정의</div>
+                <div class="value-desc">법의 테두리 안에서 의뢰인의 권리를 최대한 보호합니다.</div>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🔒</div>
+              <div>
+                <div class="value-title">철저한 비밀 보장</div>
+                <div class="value-desc">의뢰인의 정보와 사건 내용은 엄격히 보호됩니다.</div>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">💬</div>
+              <div>
+                <div class="value-title">명확한 소통</div>
+                <div class="value-desc">복잡한 법률 내용을 쉽고 투명하게 설명해 드립니다.</div>
+              </div>
+            </div>
           </div>
-          <div class="case-card">
-            <div class="case-category">부동산 분쟁</div>
-            <h3 class="case-title">지역주택조합<br>납입금 전액 반환 승소</h3>
-            <p class="case-desc">조합 측의 기망 행위를 입증하여 조합원 가입 계약 취소 및 납입금 100% 반환 판결을 받아냈습니다.</p>
-            <div class="case-result">결과: 100% 승소 및 전액 반환</div>
-          </div>
-          <div class="case-card">
-            <div class="case-category">엔터·지식재산권</div>
-            <h3 class="case-title">유명 유튜버<br>전속계약 해지 방어</h3>
-            <p class="case-desc">불공정 계약 조항의 무효를 주장하고 신속한 가처분 신청을 통해 아티스트의 독립적인 활동을 보장받았습니다.</p>
-            <div class="case-result">결과: 가처분 인용 및 계약 해지</div>
+          <div>
+            <div style="background: var(--color-background-secondary); padding: 2.5rem; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary);">
+              <div class="section-label" style="margin-bottom: 1.2rem;">사무소 철학</div>
+              <p style="font-family: 'Noto Serif KR', serif; font-size: 16px; line-height: 2; color: var(--color-text-primary);">
+                "법은 강자의 도구가 아닌, 모두를 위한 방패입니다. 저희 청하는 그 방패를 가장 올바르게 활용하는 것을 사명으로 삼습니다."
+              </p>
+              <div style="margin-top: 1.5rem; font-size: 14px; font-weight: 500; color: var(--color-text-secondary); text-align: right;">— 대표변호사 이선우</div>
+            </div>
           </div>
         </div>
-        
-        <div style="text-align: center;">
-          <a href="여기에_노션_링크를_넣어주세요" target="_blank" class="btn-more">더 많은 승소 사례 보기 →</a>
-        </div>
-        
       </div>
     </section>
 
@@ -279,48 +301,92 @@
             <div class="service-name">엔터테인먼트</div>
             <div class="service-desc">전속계약, 저작권, 초상권, 아티스트·매니지먼트 분쟁 등 연예·문화 산업 법률 업무를 지원합니다.</div>
           </div>
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <div class="service-name">부동산 분쟁</div>
+            <div class="service-desc">지역주택조합, 분양계약, 임대차 분쟁, 재개발·재건축 관련 법률 문제를 처리합니다.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">👨‍👩‍👧</div>
+            <div class="service-name">가사·상속</div>
+            <div class="service-desc">이혼, 양육권, 상속 분쟁 등 가족 관련 법률 문제를 세심하게 처리합니다.</div>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏥</div>
+            <div class="service-name">의료 분쟁</div>
+            <div class="service-desc">의료 사고, 과실 입증 및 손해배상 등 의료 소송 전반을 전문적으로 대리합니다.</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="team" id="team">
       <div class="section-inner">
-        <div class="section-label" style="color: rgba(184,153,58,0.9);">Contact</div>
-        <h2 class="section-title">상담 신청</h2>
-        <p class="section-desc">어떤 작은 고민이라도 편하게 문의해 주세요. 빠르게 답변드리겠습니다.</p>
-        <div class="contact-grid">
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-icon">📍</div>
-              <div>
-                <div class="contact-label">주소</div>
-                <div class="contact-value">서울특별시 서초구 서초대로50길 31<br>백송빌딩 4층</div>
-              </div>
+        <div class="section-label">Our Attorneys</div>
+        <h2 class="section-title">변호사 소개</h2>
+        <p class="section-desc">풍부한 경험과 전문성으로 의뢰인의 권익을 지킵니다.</p>
+        <div class="team-grid">
+          
+          <div class="team-card">
+            <div class="team-portrait">
+              <img src="대표변호사.png" alt="이선우 대표 변호사">
+              <div class="team-bar"></div>
             </div>
-            <div class="contact-item">
-              <div class="contact-icon">📞</div>
-              <div>
-                <div class="contact-label">전화</div>
-                <div class="contact-value">02-6949-6265</div>
+            <div class="team-info">
+              <div class="team-role">대표 변호사</div>
+              <div class="team-name">이선우</div>
+              <div class="team-tags">
+                <span class="team-tag">검사 출신</span>
+                <span class="team-tag">형사</span>
+                <span class="team-tag">민사</span>
+                <span class="team-tag">부동산</span>
               </div>
-            </div>
-            <div class="map-container">
-              <div>
-                <p style="margin-bottom:10px;">🗺️ <strong>여기에 네이버 지도가 들어갑니다.</strong></p>
-                <p style="font-size:12px;">네이버 지도 웹사이트에서 [공유] -> [HTML 복사]를 누른 뒤,<br>이 부분의 코드(&lt;div class="map-container"&gt; 안쪽)를 교체해 주세요.</p>
-              </div>
+              <ul class="career-list">
+                <li>서울대학교 법과대학 졸업</li>
+                <li>제14회 사법고시 합격</li>
+                <li>前 광주·서울(동부·수원·남부)·제주·부산·전주(정읍지청장)지방검찰청 검사</li>
+                <li>前 수원지방검찰청 형사3부 부장검사</li>
+                <li>前 대구지방검찰청 형사1부 부장검사</li>
+                <li>前 서울지방검찰청 동부지청 형사2·1부 부장검사</li>
+                <li>前 법무법인 대륙아주 변호사</li>
+                <li>前 법무법인 새로 변호사</li>
+                <li>現 법률사무소 청하 대표변호사</li>
+              </ul>
             </div>
           </div>
-          <form id="contactForm" class="contact-form" action="https://formspree.io/f/mbdzpjed" method="POST">
-            <div class="form-row">
-              <input class="form-input" type="text" name="성함" placeholder="성함" required />
-              <input class="form-input" type="tel" name="연락처" placeholder="연락처" required />
+          
+          <div class="team-card">
+            <div class="team-portrait style-cover">
+              <img src="최우준변호사.webp" alt="최우준 변호사">
+              <div class="team-bar"></div>
             </div>
-            <input class="form-input" type="email" name="이메일" placeholder="이메일" required />
-            <input class="form-input" type="text" name="상담분야" placeholder="상담 분야 (예: 형사변호, 부동산 분쟁)" />
-            <textarea class="form-textarea" name="상담내용" placeholder="상담 내용을 간략히 적어주세요." required></textarea>
-            <button type="submit" class="btn-submit">상담 신청하기</button>
-          </form>
+            <div class="team-info">
+              <div class="team-role">변호사</div>
+              <div class="team-name">최우준</div>
+              <div class="team-tags">
+                <span class="team-tag">민사</span>
+                <span class="team-tag">형사·소년</span>
+                <span class="team-tag">엔터·지적재산권</span>
+                <span class="team-tag">산재·노동</span>
+                <span class="team-tag">의료</span>
+              </div>
+              <ul class="career-list">
+                <li>동국대학교 법학과 우등 졸업</li>
+                <li>충남대학교 법학전문대학원 졸업</li>
+                <li>제13회 변호사시험 합격</li>
+                <li>법제처 실무수습</li>
+                <li>제8회 특허소송변론대회 입선</li>
+                <li>제10회 특허소송변론대회 한국지적재산권 변호사협회장상 수상</li>
+                <li>아동심리상담사 1급</li>
+                <li>現 거원초등학교 변호사 명예교사</li>
+                <li>現 SMGS 브랜드 법률고문</li>
+                <li>現 KGM 노동조합 자문 변호사</li>
+                <li>재즈기자 · SMGS 등 다수 유튜브 채널 출연</li>
+                <li>유튜브 〈별걸다하는 최변〉 운영</li>
+              </ul>
+            </div>
+          </div>
+          
         </div>
       </div>
     </section>
@@ -359,10 +425,30 @@
   </div>
 
   <script>
+    /* 숫자 카운트 또로로록 올라가는 애니메이션 */
+    document.addEventListener("DOMContentLoaded", () => {
+      const counter = document.getElementById("year-counter");
+      let count = 1;
+      const target = 20;
+      const speed = 60; // 숫자가 올라가는 속도 (ms)
+      
+      const updateCount = () => {
+        if (count <= target) {
+          counter.innerText = count + "년+";
+          count++;
+          setTimeout(updateCount, speed);
+        }
+      };
+      
+      // 약간의 딜레이 후 애니메이션 시작
+      setTimeout(updateCount, 500);
+    });
+
     function toggleMenu() {
       const menu = document.getElementById("navMenu");
       menu.classList.toggle("active");
     }
+    
     const modal = document.getElementById('contactModal');
     function openModal() { modal.classList.add('active'); }
     function closeModal() { modal.classList.remove('active'); }
