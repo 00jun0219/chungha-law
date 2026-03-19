@@ -22,7 +22,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Noto Sans KR', sans-serif; color: var(--color-text-primary); background-color: var(--color-background-primary); line-height: 1.6; }
     
-    /* ★ 수정됨: 스크롤 시 무조건 따라다니도록 position: fixed 적용 및 z-index 상향 ★ */
+    /* 상단 고정 네비게이션바 */
     nav {
       position: fixed; 
       top: 0; left: 0; width: 100%; z-index: 1000;
@@ -46,7 +46,7 @@
     /* 서브페이지 히어로 */
     .sub-hero {
       background: linear-gradient(135deg, #0f172a 0%, #020617 100%); 
-      padding: 8rem 2rem 5rem; /* nav가 fixed가 되면서 콘텐츠가 위로 올라붙는 것을 방지하기 위해 상단 패딩 증가 */
+      padding: 8rem 2rem 5rem; 
       text-align: center; 
       position: relative; 
       overflow: hidden;
@@ -62,7 +62,8 @@
     section { padding: 5rem 2rem; overflow: hidden; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    /* 깔끔하고 묵직한 페이드인 효과 */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     /* 상세 업무 분야 그리드 스타일 */
@@ -146,7 +147,7 @@
 
     <div class="sub-hero">
       <h1 class="reveal">당신의 권리를 지키는<br>가장 확실한 전략</h1>
-      <p class="reveal" style="transition-delay: 0.1s;">다양한 법률 문제에 대한 최적의 맞춤형 솔루션을 제공합니다.</p>
+      <p class="reveal">다양한 법률 문제에 대한 최적의 맞춤형 솔루션을 제공합니다.</p>
     </div>
 
     <section>
@@ -167,7 +168,7 @@
             </ul>
           </div>
 
-          <div class="detail-card reveal" style="transition-delay: 0.1s;">
+          <div class="detail-card reveal">
             <div class="detail-header">
               <div class="detail-icon">⚖</div>
               <div class="detail-title">민사 소송</div>
@@ -181,7 +182,7 @@
             </ul>
           </div>
 
-          <div class="detail-card reveal" style="transition-delay: 0.2s;">
+          <div class="detail-card reveal">
             <div class="detail-header">
               <div class="detail-icon">🏢</div>
               <div class="detail-title">부동산 분쟁</div>
@@ -209,7 +210,7 @@
             </ul>
           </div>
 
-          <div class="detail-card reveal" style="transition-delay: 0.1s;">
+          <div class="detail-card reveal">
             <div class="detail-header">
               <div class="detail-icon">👨‍👩‍👧</div>
               <div class="detail-title">가사·상속</div>
@@ -223,7 +224,7 @@
             </ul>
           </div>
 
-          <div class="detail-card reveal" style="transition-delay: 0.2s;">
+          <div class="detail-card reveal">
             <div class="detail-header">
               <div class="detail-icon">🏥</div>
               <div class="detail-title">의료·노동 분쟁</div>
