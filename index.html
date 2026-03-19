@@ -82,7 +82,7 @@
     .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
     .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; word-break: keep-all; }
 
-    /* 승소 사례 섹션 추가 */
+    /* 승소 사례 섹션 */
     .success-cases { background: var(--color-background-secondary); }
     .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
     .case-card { background: #ffffff; padding: 2.5rem 2rem; border-radius: var(--border-radius-lg); border-top: 4px solid #b8993a; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease; display: flex; flex-direction: column; }
@@ -91,6 +91,9 @@
     .case-title { font-family: 'Noto Serif KR', serif; font-size: 19px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 1rem; line-height: 1.4; }
     .case-desc { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; word-break: keep-all; flex-grow: 1; }
     .case-result { margin-top: 1.5rem; font-size: 14px; font-weight: 600; color: #162235; background: #f4f5f7; padding: 10px 15px; border-radius: 4px; text-align: center; }
+
+    .btn-more { display: inline-block; padding: 12px 30px; border: 2px solid #1e304a; color: #1e304a; font-size: 15px; font-weight: 600; border-radius: 4px; text-decoration: none; transition: all 0.3s; margin-top: 3rem; }
+    .btn-more:hover { background: #1e304a; color: #ffffff; transform: translateY(-2px); }
 
     /* 업무 분야 */
     .services { background: var(--color-background-primary); }
@@ -122,7 +125,7 @@
     .btn-submit { background: #b8993a; color: #fff; border: none; padding: 16px; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; border-radius: 4px; transition: background 0.2s; width: 100%; margin-top: 0.5rem; }
     .btn-submit:hover { background: #9d8130; }
 
-    /* ★ 플로팅 듀얼 버튼 (카톡 & 빠른상담) ★ */
+    /* 플로팅 듀얼 버튼 (카톡 & 빠른상담) */
     .floating-wrap {
       position: fixed;
       bottom: 30px;
@@ -247,6 +250,11 @@
             <div class="case-result">결과: 가처분 인용 및 계약 해지</div>
           </div>
         </div>
+        
+        <div style="text-align: center;">
+          <a href="여기에_노션_링크를_넣어주세요" target="_blank" class="btn-more">더 많은 승소 사례 보기 →</a>
+        </div>
+        
       </div>
     </section>
 
@@ -301,7 +309,7 @@
                 <p style="margin-bottom:10px;">🗺️ <strong>여기에 네이버 지도가 들어갑니다.</strong></p>
                 <p style="font-size:12px;">네이버 지도 웹사이트에서 [공유] -> [HTML 복사]를 누른 뒤,<br>이 부분의 코드(&lt;div class="map-container"&gt; 안쪽)를 교체해 주세요.</p>
               </div>
-              </div>
+            </div>
           </div>
           <form id="contactForm" class="contact-form" action="https://formspree.io/f/mbdzpjed" method="POST">
             <div class="form-row">
