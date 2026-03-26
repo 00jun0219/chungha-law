@@ -56,8 +56,8 @@
       background: radial-gradient(circle at 50% 30%, rgba(40, 121, 184, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
-    .sub-hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1rem; word-break: keep-all; }
-    .sub-hero p { position: relative; font-size: 16px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-weight: 300; word-break: keep-all; }
+    .sub-hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1rem; word-break: keep-all; text-wrap: balance; }
+    .sub-hero p { position: relative; font-size: 16px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-weight: 300; word-break: keep-all; text-wrap: balance; }
 
     section { padding: 5rem 2rem; overflow: hidden; background: var(--color-background-secondary); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
@@ -85,7 +85,7 @@
     .detail-icon { font-size: 32px; width: 60px; height: 60px; background: var(--color-background-secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #2879B8; box-shadow: 0 2px 10px rgba(0,0,0,0.05); flex-shrink: 0; }
     .detail-title { font-family: 'Noto Serif KR', serif; font-size: 22px; font-weight: 600; color: var(--color-text-primary); }
     
-    .detail-desc { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; margin-bottom: 2rem; flex-grow: 1; }
+    .detail-desc { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; word-break: keep-all; margin-bottom: 2rem; flex-grow: 1; text-wrap: pretty; }
     
     .detail-list { list-style: none; padding-top: 1.5rem; border-top: 1px dashed var(--color-border-tertiary); }
     .detail-list li { font-size: 14px; font-weight: 500; color: #1a3a6b; margin-bottom: 10px; padding-left: 20px; position: relative; }
@@ -99,8 +99,8 @@
     .contact .section-desc { color: rgba(255,255,255,0.7); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; color: #2879B8; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
-    .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; }
+    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; text-wrap: balance; }
+    .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; text-wrap: pretty; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 4rem; align-items: stretch; }
     .contact-items { display: flex; flex-direction: column; gap: 2.5rem; justify-content: center; }
     .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
@@ -166,7 +166,7 @@
 
     <div class="sub-hero">
       <h1 class="reveal">당신의 권리를 지키는 가장 확실한 전략</h1>
-      <p class="reveal">형사부터 민사, 부동산, 엔터테인먼트까지 — 사건의 성격에 맞는 전략으로 의뢰인 곁에 섭니다.</p>
+      <p class="reveal">의뢰인의 사건을 직접 맡아 처음부터 끝까지 책임집니다.</p>
     </div>
 
     <section>
