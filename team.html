@@ -54,10 +54,10 @@
       background: radial-gradient(circle at 50% 30%, rgba(40, 121, 184, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
-    .sub-hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1rem; }
+    .sub-hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 4vw, 42px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1rem; word-break: keep-all; }
     .sub-hero p { position: relative; font-size: 16px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; font-weight: 300; word-break: keep-all; }
 
-    section { padding: 5rem 2rem; overflow: hidden; }
+    section { padding: 5rem 2rem; overflow: hidden; background: var(--color-background-secondary); }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     
     .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -130,6 +130,7 @@
       .nav-links.active { display: flex; }
       .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; }
       .team-portrait { height: 300px; }
+      .team-grid { grid-template-columns: 1fr; }
       .floating-wrap { bottom: 20px; right: 20px; }
       .floating-btn { padding: 12px 20px; font-size: 14px; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -154,7 +155,7 @@
 
     <div class="sub-hero">
       <h1 class="reveal">탁월한 결과로 증명하는 전문가</h1>
-      <p class="reveal" style="transition-delay: 0.1s;">수많은 승소 사례로 검증된 청하의 변호사들을 소개합니다.</p>
+      <p class="reveal" style="transition-delay: 0.1s;">의뢰인의 이야기를 먼저 듣고, 사건의 본질을 파악해 끝까지 함께하는 변호사들입니다.</p>
     </div>
 
     <section>

@@ -56,7 +56,7 @@
     }
 
     .hero-badge { position: relative; display: inline-block; font-size: 12px; letter-spacing: 0.15em; color: #6FAFE0; border: 1px solid rgba(111, 175, 224, 0.4); background: rgba(111, 175, 224, 0.05); padding: 6px 16px; margin-bottom: 1.5rem; text-transform: uppercase; font-weight: 500; border-radius: 4px; }
-    .hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 54px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1.2rem; }
+    .hero h1 { position: relative; font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 5vw, 54px); font-weight: 600; color: #ffffff; line-height: 1.4; margin-bottom: 1.2rem; word-break: keep-all; }
     .hero p { position: relative; font-size: 16.5px; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 600px; margin: 0 auto 3rem; font-weight: 300; text-align: center; word-break: keep-all; }
     
     .hero-cta { position: relative; display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; z-index: 2; }
@@ -81,7 +81,7 @@
     section { padding: 6rem 2rem; scroll-margin-top: 70px; overflow: hidden; }
     .section-inner { max-width: 1000px; margin: 0 auto; }
     .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; color: #2879B8; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; }
+    .section-title { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--color-text-primary); margin-bottom: 1.2rem; line-height: 1.4; word-break: keep-all; }
     .section-desc { font-size: 16px; color: var(--color-text-secondary); line-height: 1.8; max-width: 650px; }
 
     .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
@@ -103,7 +103,7 @@
     .service-name { font-size: 18px; font-weight: 600; margin-bottom: 1rem; color: var(--color-text-primary); }
     .service-desc { font-size: 14.5px; color: var(--color-text-secondary); line-height: 1.6; word-break: keep-all; }
 
-    .team { background: var(--color-background-primary); }
+    .team { background: var(--color-background-secondary); }
     .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem; }
     .team-card { border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
     .team-portrait { height: 280px; position: relative; overflow: hidden; background: #e6e2d8; } 
@@ -221,7 +221,7 @@
         <div class="stat">
           <div class="stat-num">맞춤형</div>
           <div class="stat-label">법률 솔루션</div>
-          <div class="stat-desc">의뢰인 중심의 최적화된 전략 수립</div>
+          <div class="stat-desc">의뢰인의 상황에 맞는 전략을 직접 수립</div>
         </div>
       </div>
     </div>
@@ -272,7 +272,7 @@
       <div class="section-inner reveal">
         <div class="section-label">Practice Areas</div>
         <h2 class="section-title">주요 업무 분야</h2>
-        <p class="section-desc">다양한 법률 분야에서 전문적인 서비스를 제공합니다.</p>
+        <p class="section-desc">각 분야의 깊이 있는 실무 경험을 바탕으로, 처음부터 끝까지 담당 변호사가 직접 수행합니다.</p>
         <div class="services-grid">
           <div class="service-card">
             <div class="service-icon">⚖</div>
@@ -312,7 +312,7 @@
       <div class="section-inner reveal">
         <div class="section-label">Our Attorneys</div>
         <h2 class="section-title">변호사 소개</h2>
-        <p class="section-desc">풍부한 경험과 전문성으로 의뢰인의 권익을 지킵니다.</p>
+        <p class="section-desc">검사 출신 대표변호사와 다양한 분야의 실무 경험을 갖춘 두 변호사를 소개합니다.</p>
         <div class="team-grid">
           <div class="team-card">
             <div class="team-portrait">
