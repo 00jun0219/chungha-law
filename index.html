@@ -33,8 +33,8 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
     }
     .nav-logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
-    .nav-logo img { height: 40px; width: auto; object-fit: contain; }
-    .nav-logo span { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; color: #1a1a1a; }
+    .logo-text { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.02em; }
+    .logo-accent { color: #b8993a; }
     
     .nav-links { display: flex; gap: 2rem; align-items: center; }
     .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--color-text-secondary); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; cursor: pointer; }
@@ -136,8 +136,7 @@
       height: 350px;
       border-radius: var(--border-radius-lg);
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      background-color: #1e293b;
+      border: none;
     }
 
     footer { background: #020617; padding: 3rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -173,7 +172,7 @@
       .btn-primary, .btn-outline { width: 100%; }
       .hero-stats { gap: 2.5rem; margin-top: 3rem; flex-direction: column; align-items: center; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .map-box { height: 250px; }
+      .map-box { height: 250px; border: none; }
       .mobile-menu-btn { display: block; }
       .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: rgba(239, 236, 229, 0.98); box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
@@ -182,21 +181,19 @@
       .floating-btn { padding: 12px 20px; font-size: 14px; }
     }
   </style>
-  
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2740e6ad07092d55c0c4ee9abec7e4b2"></script>
+
 </head>
 <body>
   <div class="site">
     <nav>
       <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="법률사무소 청하" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <span style="display: none;">법률사무소 청하</span>
+        <span class="logo-text">법률사무소 <span class="logo-accent">청하</span></span>
       </a>
       <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
       <div class="nav-links" id="navMenu">
-        <a href="about.html">소개</a>
+        <a href="about.html">청하 소개</a>
         <a href="services.html">업무 분야</a>
-        <a href="team.html">변호사</a>
+        <a href="team.html">구성원</a>
         <a onclick="openModal()">상담</a>
       </div>
     </nav>
@@ -204,7 +201,7 @@
     <div class="hero">
       <div class="hero-badge reveal">Law Office Chungha</div>
       <h1 class="reveal" style="transition-delay: 0.1s;">정의를 향한<br>흔들리지 않는 신념</h1>
-      <p class="reveal" style="transition-delay: 0.2s;">법률사무소 청하는 의뢰인의 권리를 최우선으로 생각합니다.<br>명확한 법률 조언과 풍부한 경험으로 최선의 결과를 이끌어냅니다.</p>
+      <p class="reveal" style="transition-delay: 0.2s;">투명하게 흐르는 진실, 명쾌하게 닿는 해답.<br>법률사무소 청하입니다.</p>
       <div class="hero-cta reveal" style="transition-delay: 0.3s;">
         <a onclick="openModal()" class="btn-primary">상담 신청</a>
         <a href="services.html" class="btn-outline">주요 업무 안내</a>
@@ -232,7 +229,7 @@
       <div class="section-inner reveal">
         <div class="section-label">About Us</div>
         <h2 class="section-title">의뢰인과 함께하는<br>신뢰의 법률 파트너</h2>
-        <p class="section-desc">법률사무소 청하는 민사·형사·부동산·엔터테인먼트 등 다양한 분야에서 의뢰인의 입장에서 생각하고, 최선의 법률 서비스를 제공합니다.</p>
+        <p class="section-desc">Clear, Honest. 명확한 분석과 정직한 소통으로 최적의 결과를 이끌어내는 법률사무소 청하입니다.</p>
         <div class="about-grid">
           <div class="about-values">
             <div class="value-item">
@@ -261,7 +258,7 @@
             <div style="background: var(--color-background-secondary); padding: 2.5rem; border-radius: var(--border-radius-lg); border: 1px solid var(--color-border-tertiary);">
               <div class="section-label" style="margin-bottom: 1.2rem;">사무소 철학</div>
               <p style="font-family: 'Noto Serif KR', serif; font-size: 16px; line-height: 2; color: var(--color-text-primary);">
-                "법은 강자의 도구가 아닌, 모두를 위한 방패입니다. 저희 청하는 그 방패를 가장 올바르게 활용하는 것을 사명으로 삼습니다."
+                복잡하게 얽힌 문제들을 유연하고 지혜롭게 풀어나가는 청하의 전문성과, 어떤 어려움 앞에서도 멈추지 않고 앞으로 나아가는 굳건한 의지. 맑고 깊은 강물처럼 변함없이 투명하고 정직한 법률 서비스로 의뢰인에게 가장 확실한 안도감을 드리겠습니다.
               </p>
               <div style="margin-top: 1.5rem; font-size: 14px; font-weight: 500; color: var(--color-text-secondary); text-align: right;">— 대표변호사 이선우</div>
             </div>
@@ -393,7 +390,7 @@
               <div class="contact-icon">📞</div>
               <div>
                 <div class="contact-label">전화</div>
-                <div class="contact-value">02-6949-6265</div>
+                <div class="contact-value"><a href="tel:02-6949-6265" style="color: inherit; text-decoration: none;">02-6949-6265</a></div>
               </div>
             </div>
             <div class="contact-item">
@@ -405,7 +402,14 @@
             </div>
           </div>
           
-          <div id="map" class="map-box"></div>
+          <iframe
+            class="map-box"
+            src="https://maps.google.com/maps?q=37.4914554826548,127.013569321577&hl=ko&z=15&output=embed"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            title="법률사무소 청하 위치"
+          ></iframe>
         </div>
       </div>
     </section>
@@ -480,26 +484,6 @@
 
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // 카카오 지도 초기화 (스크립트가 로드되었는지 확인 후 실행)
-      if (typeof kakao !== 'undefined' && kakao.maps) {
-        kakao.maps.load(function() {
-          var mapContainer = document.getElementById('map');
-          if (mapContainer) {
-            var lat = 37.4914554826548;
-            var lng = 127.013569321577;
-
-            var map = new kakao.maps.Map(mapContainer, {
-              center: new kakao.maps.LatLng(lat, lng),
-              level: 3
-            });
-
-            var marker = new kakao.maps.Marker({
-              position: new kakao.maps.LatLng(lat, lng)
-            });
-            marker.setMap(map);
-          }
-        });
-      }
     });
 
     /* 3. 모바일 메뉴 및 팝업 폼 기능 (이제 정상 작동!) */
