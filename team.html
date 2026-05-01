@@ -34,13 +34,13 @@
     /* 네비게이션바 */
     nav {
       position: sticky; top: 0; left: 0; width: 100%; z-index: 100;
-      background-color: rgba(239, 236, 229, 0.95); 
+      background-color: #ffffff;
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--color-border-tertiary);
       padding: 0 2rem;
       display: flex; align-items: center; justify-content: space-between;
       height: 70px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
     .nav-logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
     .logo-text { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.02em; }
@@ -137,7 +137,7 @@
     @media (max-width: 768px) {
       nav { padding: 0 1rem; }
       .mobile-menu-btn { display: block; }
-      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: rgba(239, 236, 229, 0.98); box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
+      .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 70px; left: 0; background-color: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 1rem 0; gap: 0; }
       .nav-links.active { display: flex; }
       .nav-links a { padding: 15px 2rem; border-bottom: 1px solid var(--color-border-tertiary); width: 100%; text-align: left; }
       .team-portrait { height: 300px; }
@@ -160,7 +160,6 @@
         <a href="about.html">청하 소개</a>
         <a href="services.html">업무 분야</a>
         <a href="team.html" style="color: #2879B8; font-weight: 600;">구성원</a>
-        <a href="https://blog.naver.com/lawfirmchungha" target="_blank" rel="noopener noreferrer">법률정보</a>
         <a onclick="openModal()">상담</a>
       </div>
     </nav>
@@ -202,7 +201,7 @@
           
           <div class="team-card reveal" style="transition-delay: 0.2s;">
             <div class="team-portrait style-cover">
-              <img src="최우준변호사.webp" alt="최우준 변호사">
+              <img src="최우준변호사.jpg" alt="최우준 변호사">
               <div class="team-bar"></div>
             </div>
             <div class="team-info">
